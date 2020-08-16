@@ -28,7 +28,7 @@ router.post('/',
                 res.status(400).json( {message : "User already exsists"} );
             }
             user = new User({ name, email, password });
-            const salt = bcrypt.genSalt(10);
+            const salt = await bcrypt.genSalt(10);
             user.password = await bcrypt.hash(password, salt);
             const result = await user.save();
             console.log(`Regestered user`);
