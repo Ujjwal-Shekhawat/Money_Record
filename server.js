@@ -12,7 +12,7 @@ application.use(cors());
 
 //Routes
 application.use('/api/users', require('./routes/users'));
-//application.use('/api/auth', require('./routes/auth'));
+application.use('/api/auth', require('./routes/auth'));
 application.use('/api/transactions', require('./routes/transactions'));
 
 const PORT = process.env.PORT || 5000;
