@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react';
+//import AuthContext from '../../context/auth/authContext';
+import AuthContext from '../../context/auth/authContext';
 
-function home() {
+const home = () => {
+    const authContext = useContext(AuthContext);
+
+    useEffect(() => {
+        AuthContext.loadUser();
+    }, []);
+
+    const { user } = AuthContext;
+    
     return (
         <div>
-            <p>Hello World!!</p>
+            { user }
         </div>
     )
 }
