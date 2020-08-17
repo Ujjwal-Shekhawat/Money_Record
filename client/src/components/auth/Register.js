@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
+import AuthContext from '../../context/auth/authContext';
 
 const Register = (props) => {
     const [formData, setFormData] = useState({
@@ -7,6 +8,18 @@ const Register = (props) => {
         password1: '',
         password2: ''
     });
+
+    const authContext = useContext(AuthContext);
+    const { register, error, isAuthenticated } = authContext;
+
+   /*  useEffect(() => {
+        if(isAuthenticated) {
+            props.history.push('/');
+        }
+        else {
+            console.log(error);
+        }
+    }) */
 
     const { name, email, password1,password2 } = formData;
 
@@ -23,7 +36,7 @@ const Register = (props) => {
             alert(`Passwords do not match`);
         }
         else {
-            alert(`Regestration success`);
+            //register( { name, email, password1 } );
         }
     } 
 
