@@ -15,7 +15,7 @@ const Home = () => {
     return (
         <div>
             {
-                user
+                user.data
             }
         </div>
     )
