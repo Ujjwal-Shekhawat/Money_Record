@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 //import AuthContext from '../../context/auth/authContext';
 import AuthContext from '../../context/auth/authContext';
 
-const home = () => {
+const Home = () => {
     const authContext = useContext(AuthContext);
     
     const { user } = authContext;
@@ -14,9 +14,9 @@ const home = () => {
     
     return (
         <div>
-            user
+            { user }
         </div>
     )
 }
 
-export default home
+export default Home
