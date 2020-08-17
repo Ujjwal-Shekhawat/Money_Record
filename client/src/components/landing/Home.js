@@ -6,16 +6,15 @@ const Home = () => {
     const authContext = useContext(AuthContext);
     
     const { user } = authContext;
-    
-    useEffect(() => {
-        authContext.loadUser();
+
+    useEffect(async () => {
+        await authContext.loadUser();
     }, []);
 
-    
     return (
         <div>
-            {
-                user.data
+            {(user !== null) ?
+                user.name : null
             }
         </div>
     )

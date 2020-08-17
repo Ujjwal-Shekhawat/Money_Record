@@ -32,8 +32,8 @@ const AuthState = (props) => {
 
         try {
             const result = await axios.get('http://localhost:5000/api/auth');
-            console.log(result);
-            dispatch({ type: 'user_loaded', payload: result});
+            console.log(result.data);
+            dispatch({ type: 'user_loaded', payload: result.data});
         } catch(error) {
             dispatch({ type: 'auth_error' });
         }
