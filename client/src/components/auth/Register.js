@@ -11,8 +11,8 @@ const Register = (props) => {
     const { name, email, password1,password2 } = formData;
 
     const onFormChange = (e) => {
-        setFormData = ({ ...formData, [e.target.name]: e.target.value });
-        console.log(`Data Updated`);
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+        //console.log(`Data Updated`);
     };
     const onSubmit = (e) => {
         e.preventDefault();
@@ -31,13 +31,13 @@ const Register = (props) => {
         <div>
             <form onSubmit={onSubmit}>
                 <label>Name</label>
-                <input type='text' name='name' onChange={onFormChange }></input>
+                <input type='text' name='name' value={name} onChange={onFormChange}></input>
                 <label>Email</label>
-                <input type='email' name='email' onChange={onFormChange }></input>
+                <input type='email' name='email' value={email} onChange={onFormChange}></input>
                 <label>Password</label>
-                <input type='password' name='password1' onChange={onFormChange }></input>
+                <input type='password' name='password1' minLength='6' value={password1} onChange={onFormChange}></input>
                 <labe>Confirm password</labe>
-                <input type='password' name='password2' onChange={onFormChange }></input>
+                <input type='password' name='password2' minLength='6' value={password2} onChange={onFormChange}></input>
                 <input type='submit' vlaue='Submit' />
             </form>
         </div>
