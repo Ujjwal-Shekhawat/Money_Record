@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from './components/landing/navbar';
-import HomePage from './components/landing/home';
+import HomePage from './components/landing/Home';
 import Regester from './components/auth/Register';
 import './App.css';
-import home from './components/landing/home';
+import home from './components/landing/Home';
 
 function App() {
   return (
