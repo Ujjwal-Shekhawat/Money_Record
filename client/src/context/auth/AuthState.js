@@ -14,7 +14,7 @@ const setAuthToken = (token) => {
     }
 };
 
-const authState = (props) => {
+const AuthState = (props) => {
     const initState = {
         token: localStorage.getItem('token'),
         isAuthenticated: null,
@@ -48,7 +48,7 @@ const authState = (props) => {
             dispatch({ type: 'reg_sucess', payload: result.data });
             loadUser();
         } catch(error) {
-            alert(error.response.data);
+            console.log(error.response.data);
         }
     };
 
@@ -68,4 +68,4 @@ const authState = (props) => {
     )
 }
 
-export default authState;
+export default AuthState;

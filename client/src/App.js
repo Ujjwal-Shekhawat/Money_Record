@@ -4,10 +4,11 @@ import NavBar from './components/landing/navbar';
 import HomePage from './components/landing/Home';
 import Regester from './components/auth/Register';
 import './App.css';
-import home from './components/landing/Home';
+import AuthState from './context/auth/AuthState';
 
 function App() {
   return (
+    <AuthState>
     <div className="App">
       <Router>
         <Fragment>
@@ -19,6 +20,7 @@ function App() {
         </Fragment>
       </Router>
     </div>
+    </AuthState>
   );
 }
 
