@@ -14,7 +14,9 @@ const Home = () => {
     
     return (
         <div>
-            { user }
+            {
+                user
+            }
         </div>
     )
 }

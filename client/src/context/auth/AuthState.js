@@ -44,8 +44,8 @@ const AuthState = (props) => {
         } }
 
         try {
-            const result = await axios.post('http://localhost:5000/api/auth', formData, config);
-            dispatch({ type: 'reg_sucess', payload: result.data });
+            const result = await axios.post('http://localhost:5000/api/users', formData, config);
+            dispatch({ type: 'reg_success', payload: result.data });
             loadUser();
         } catch(error) {
             console.log(error.response.data);

@@ -29,7 +29,7 @@ const Register = (props) => {
     };
     const onSubmit = (e) => {
         e.preventDefault();
-        if(name == '' || email == '' || password == '') {
+        if(name === '' || email === '' || password === '') {
             alert(`Please enter valid credentials`);
         }
         else if(password !== password2) {
