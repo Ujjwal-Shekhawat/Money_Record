@@ -15,7 +15,8 @@ const TransactionState = (props) => {
     //get transactions
     const getTransactions = async () => {
         try {
-        const result = await axios.get('http://localhost:5000/auth/transactions');
+        const result = await axios.get('http://localhost:5000/api/transactions');
+        console.log(result.data);
         dispach({ type: 'get_transactions', payload: result.data });
         } catch(error) {
             alert(`Error : ${error.message}`);
@@ -25,7 +26,8 @@ const TransactionState = (props) => {
     return (
         <TranssactionContext.Provider
             value={{
-                transactions: state.transactions
+                transactions: state.transactions,
+                getTransactions
             }}>
             {props.children}
         </TranssactionContext.Provider>

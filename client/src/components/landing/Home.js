@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 //import AuthContext from '../../context/auth/authContext';
 import AuthContext from '../../context/auth/authContext';
+import Transactions from './Transactions';
 
 const Home = () => {
     const authContext = useContext(AuthContext);
@@ -13,9 +14,7 @@ const Home = () => {
 
     return (
         <div>
-            {(user !== null) ?
-                user.name : null
-            }
+            <Transactions value={user}/>
         </div>
     )
 }
