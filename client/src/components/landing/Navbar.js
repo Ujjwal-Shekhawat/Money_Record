@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
     return (
@@ -6,8 +7,8 @@ function Navbar() {
             <nav className='Navbar'>
                 <ul>
                     <h4>Money Record</h4>
-                    <li><a href ='/auth/register'>Regester</a></li>
-                    <li><a href ='/auth/login'>Login</a></li>
+                    <li><Link to='/auth/register'>Register</Link></li>
+                    <li><Link to='/auth/login'>Login</Link></li>
                 </ul>
             </nav>
         </div>
