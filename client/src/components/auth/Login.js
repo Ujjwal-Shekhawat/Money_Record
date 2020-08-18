@@ -10,12 +10,18 @@ const Login = (props) => {
     const authContext = useContext(AuthContext);
     const { login, isAuthenticated } = authContext;
     const { email, password } = formData;
-
+    
     useEffect(() => {
         if(isAuthenticated) {
             props.history.push('/');
         }
-    }, []);
+        console.log(formData);
+    }, [email, password]); // Later empty the array
+    
+    
+    const onChange = (e) => {
+        setFormData({...formData, [e.target.name]: [e.target.value]});
+    }
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -24,13 +30,11 @@ const Login = (props) => {
         }
         else {
             //alert(`We will log you in soon`);
-            login({ email, password });
+            login( { email, password } );
         }
     };
-
-    const onChange = (e) => {
-        setFormData({...formData, [e.target.name]: [e.target.value]});
-    }
+    
+    
 
     return (
         <Fragment>

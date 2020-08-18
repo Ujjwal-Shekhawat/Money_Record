@@ -7,7 +7,7 @@ const config = require('config');
 const auth = require('../middleware/auth');
 const User = require('../models/User');
 
-//Login user
+//Get the user data
 router.get('/', auth, async (req, res) => {
     try {
         const user = await User.findById(req.user.id).select('-password');
@@ -19,6 +19,7 @@ router.get('/', auth, async (req, res) => {
     }
 });
 
+//Login user
 router.post('/',
     [
         check('email', 'Please enter an email').not().isEmpty(),
@@ -31,6 +32,7 @@ router.post('/',
         }
 
         const { email, password } = req.body;
+        console.log(req.body);
         try {
             let user = await User.findOne({ email });
             if(!user) {
