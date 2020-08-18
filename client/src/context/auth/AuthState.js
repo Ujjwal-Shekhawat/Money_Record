@@ -53,6 +53,19 @@ const AuthState = (props) => {
         }
     };
 
+    const login = async (formData) => {
+        const config = {headers: {'content-type': 'application/json'}};
+
+        try {
+            const result = await axios.post('http://localhost:5000/api/auth', formData, config);
+            console.log(result.data);
+            dispatch({ type: 'login_success', payload: result.data });
+            loadUser();
+        } catch(err) {
+            alert(`Login failed error ${err.message}`);
+        }
+    }
+
     return (
         <AuthContext.Provider
         value={{
@@ -62,6 +75,7 @@ const AuthState = (props) => {
             user: state.user,
             error: state.error,
             register,
+            login,
             loadUser,
         }}>
         {props.children}

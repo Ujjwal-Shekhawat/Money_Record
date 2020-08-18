@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 
+//Register user
 router.post('/',
     [
         check('name', 'Please enter a name').not().isEmpty(),
