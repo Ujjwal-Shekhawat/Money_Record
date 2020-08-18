@@ -15,17 +15,16 @@ const Login = (props) => {
         if(isAuthenticated) {
             props.history.push('/');
         }
-        console.log(formData);
-    }, [email, password]); // Later empty the array
+    }, [isAuthenticated, props.history]);
     
     
     const onChange = (e) => {
-        setFormData({...formData, [e.target.name]: [e.target.value]});
+        setFormData({...formData, [e.target.name]: e.target.value});
     }
 
     const onSubmit = (e) => {
         e.preventDefault();
-        if(email == '' || password == '') {
+        if(email === '' || password === '') {
             alert(`Please fill out the feilds`);
         }
         else {

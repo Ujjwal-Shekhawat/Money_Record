@@ -19,7 +19,7 @@ const Register = (props) => {
         else {
             console.log(error);
         }
-    })
+    }, [isAuthenticated, props.history]) // Im curious about props.history
 
     const { name, email, password,password2 } = formData;
 

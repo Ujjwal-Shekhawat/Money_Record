@@ -5,20 +5,16 @@ const TransactionSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'users'
     },
-    name: {
+    comment: {
         type: String,
-        required: true
-    },
-    email: {
-        type: email,
-        required: true
+        required: false
     },
     remeaningbalance: {
-        type: NumberDecimal,
-        required: true
+        type: Number,
+        required: false
     },
     lasttransaction: {
-        type: NumberDecimal,
+        type: Number,
         require: true
     },
     Date: {
@@ -27,4 +23,4 @@ const TransactionSchema = mongoose.Schema({
     }
 });
 
-module.exports = TransactionSchema = mongoose.model('transcation', TransactionSchema);
+module.exports = mongoose.model('transcation', TransactionSchema);
