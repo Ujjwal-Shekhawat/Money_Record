@@ -26,7 +26,7 @@ function Navbar() {
         <Fragment>
             <ul>
                 <h4>Money Record</h4>
-                <li><a onClick={onLogout} href="!#"><span>Logout</span></a></li>
+                <li><a onClick={onLogout} href="/auth/login"><span>Logout</span></a></li>
             </ul>
         </Fragment>
     )
