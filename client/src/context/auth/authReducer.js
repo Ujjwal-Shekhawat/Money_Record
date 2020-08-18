@@ -17,6 +17,15 @@ export default (state, action) => {
                 loading: false,
                 user: action.payload
             });
+        case 'logout':
+            localStorage.removeItem('token');
+            return {
+                ...state,
+                token: null,
+                isAuthenticated: false,
+                user: null,
+                loading: false
+            }
         default:
             return state;
     }
