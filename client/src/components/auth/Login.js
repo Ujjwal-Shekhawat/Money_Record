@@ -50,7 +50,7 @@ const Login = (props) => {
                         <span></span>
                         <span></span>
                         <span></span>
-                    Submit
+                    Login
                     </a>
                 </form>
             </div>

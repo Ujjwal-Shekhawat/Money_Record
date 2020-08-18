@@ -42,7 +42,7 @@ const Register = (props) => {
 
     return (
         <div className="login-box">
-            <h2>Login</h2>
+            <h2>Register</h2>
             <form>
                 <div className="user-box">
                     <input type="text" name='name' value={name} onChange={onFormChange}/>
