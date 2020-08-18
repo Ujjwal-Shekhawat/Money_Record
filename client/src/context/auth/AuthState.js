@@ -43,7 +43,7 @@ const AuthState = (props) => {
         const config = { headers: {
             'content-type': 'application/json'
         } }
-
+        console.log(formData);
         try {
             const result = await axios.post('http://localhost:5000/api/users', formData, config);
             dispatch({ type: 'reg_success', payload: result.data });
@@ -55,16 +55,16 @@ const AuthState = (props) => {
 
     const login = async (formData) => {
         const config = {headers: {'content-type': 'application/json'}};
-
+        console.log(formData);
         try {
             const result = await axios.post('http://localhost:5000/api/auth', formData, config);
             console.log(result.data);
             dispatch({ type: 'login_success', payload: result.data });
             loadUser();
         } catch(err) {
-            alert(`Login failed error ${err.message}`);
+            alert(`Login failed error ${err}`);
         }
-    }
+    };
 
     return (
         <AuthContext.Provider

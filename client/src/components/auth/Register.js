@@ -41,17 +41,32 @@ const Register = (props) => {
     } 
 
     return (
-        <div>
-            <form onSubmit={onSubmit}>
-                <label>Name</label>
-                <input type='text' name='name' value={name} onChange={onFormChange}></input><br />
-                <label>Email</label>
-                <input type='email' name='email' value={email} onChange={onFormChange}></input><br />
-                <label>Password</label>
-                <input type='password' name='password' minLength='6' value={password} onChange={onFormChange}></input><br />
-                <labe>Confirm password</labe>
-                <input type='password' name='password2' minLength='6' value={password2} onChange={onFormChange}></input><br />
-                <input type='submit' vlaue='Submit' />
+        <div className="login-box">
+            <h2>Login</h2>
+            <form>
+                <div className="user-box">
+                    <input type="text" name='name' value={name} onChange={onFormChange}/>
+                    <label>Username</label>
+                </div>
+                <div className="user-box">
+                    <input type='email' name='email' value={email} onChange={onFormChange}/>
+                    <label>Email</label>
+                </div>
+                <div className="user-box">
+                    <input type="password" name='password' value={password} onChange={onFormChange}/>
+                    <label>Password</label>
+                </div>
+                <div className="user-box">
+                    <input type="password" name='password2' value={password2} onChange={onFormChange}/>
+                    <label>Confirm Password</label>
+                </div>
+                <a onClick={onSubmit}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                Register
+                </a>
             </form>
         </div>
     )

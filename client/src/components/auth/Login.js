@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { Fragment, useState, useEffect, useContext } from 'react';
 import AuthContext from '../../context/auth/authContext';
 
 const Login = (props) => {
@@ -8,7 +8,7 @@ const Login = (props) => {
     });
 
     const authContext = useContext(AuthContext);
-    const { login, isAuthenticated } = AuthContext;
+    const { login, isAuthenticated } = authContext;
     const { email, password } = formData;
 
     useEffect(() => {
@@ -33,22 +33,31 @@ const Login = (props) => {
     }
 
     return (
-        <div>
-            <form onSubmit={onSubmit}>
-                <div>
-                    <label>Email: </label>
-                    <input type='email' name='email' value={email} onChange={onChange}></input>
-                </div>
-                <div>
-                    <label>Password</label>
-                    <input type='password' name='password' minLength='7' value={password} onChange={onChange}></input>
-                </div>
-                <div>
-                    <input type='submit' value='Login'></input>
-                </div>
-            </form>
-        </div>
+        <Fragment>
+            <div className="login-box">
+                <h2>Login</h2>
+                <form>
+                    <div className="user-box">
+                        <input type='email' name='email' value={email} onChange={onChange} />
+                        <label>Email</label>
+                    </div>
+                    <div className="user-box">
+                        <input type='password' name='password' value={password} onChange={onChange} />
+                        <label>Password</label>
+                    </div>
+                    <a onClick={onSubmit}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    Submit
+                    </a>
+                </form>
+            </div>
+        </Fragment>
     )
 }
 
 export default Login
+
+// Credits https://freefrontend.com/css-forms/  
