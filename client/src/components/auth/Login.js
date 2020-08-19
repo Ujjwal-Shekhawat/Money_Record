@@ -8,14 +8,14 @@ const Login = (props) => {
     });
 
     const authContext = useContext(AuthContext);
-    const { login, isAuthenticated } = authContext;
+    const { login, isAuthenticated, loading } = authContext;
     const { email, password } = formData;
     
     useEffect(() => {
         if(isAuthenticated) {
             props.history.push('/');
         }
-    }, [isAuthenticated, props.history]);
+    }, [isAuthenticated, props.history, loading]);
     
     
     const onChange = (e) => {
@@ -64,3 +64,5 @@ const Login = (props) => {
 export default Login
 
 // Credits https://freefrontend.com/css-forms/  
+
+//temp useing loading
