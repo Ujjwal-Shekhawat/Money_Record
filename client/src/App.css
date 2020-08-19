@@ -227,10 +227,3 @@ body {
   animation: btn-anim4 1s linear infinite;
   animation-delay: .75s
 }
-
-.home-list {
-  color: floralwhite;
-  text-align: center;
-  display: inline-block;
-  margin: 50px, 100px, 50px, 0px;
-}

@@ -7,7 +7,7 @@ import TranssactionContext from './transactionContext';
 
 const TransactionState = (props) => {
     const initState = {
-        transactions: null
+        transactions: []
     };
 
     const [state, dispach] = useReducer(transactionReducer, initState);
