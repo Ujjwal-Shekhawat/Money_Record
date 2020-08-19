@@ -8,12 +8,12 @@ const Transactions = (props) => {
 
     useEffect(() => {
         getTransactions();
-    }, []);
+    }, [props.value]);
     return (
         <Fragment>
         <div>
             <ul>
-            {(props.value !== null && transactions !== null) ? transactions.map(transaction => (<li>{transaction.lasttransaction}</li>)) : null}
+    {(props.value !== null && transactions !== null) ? transactions.map(transaction => (<li>{transaction.lasttransaction}</li>)) : (props.value !== null) ? <h1>No Transaction History for {props.value.name}</h1> : null}
             </ul>
         </div>
         </Fragment>
