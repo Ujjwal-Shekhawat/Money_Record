@@ -7,15 +7,15 @@ import Transactions from './Transactions';
 const Home = () => {
     const authContext = useContext(AuthContext);
     
-    const { user, isAuthenticated } = authContext;
+    const { user, isAuthenticated, loading } = authContext;
 
-    useEffect(async () => {
-        await authContext.loadUser();
-    }, [isAuthenticated]);
+    useEffect(() => {
+        authContext.loadUser();
+    }, [    ]);
 
     return (
         <div>
-            { (isAuthenticated) ? <Transactions value={user}/> : <Redirect to="/auth/login" /> }
+            { (isAuthenticated && !loading) ? <Transactions value={user}/> : <Redirect to="/auth/login" /> }
         </div>
     )
 }
