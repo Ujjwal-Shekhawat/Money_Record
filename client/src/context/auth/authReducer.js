@@ -26,6 +26,14 @@ export default (state, action) => {
                 user: null,
                 loading: false
             }
+        case 'auth_error':
+            return {
+                ...state,
+                token: null,
+                isAuthenticated: false,
+                loading: false,
+                user: null
+            }
         default:
             return state;
     }
