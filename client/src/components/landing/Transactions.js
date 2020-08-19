@@ -12,8 +12,10 @@ const Transactions = (props) => {
     return (
         <Fragment>
         <div>
-            <ul>
-    {(props.value !== null && transactions !== null) ? transactions.map(transaction => (<li>{transaction.lasttransaction}</li>)) : (props.value !== null) ? <h1>No Transaction History for {props.value.name}</h1> : null}
+            <ul className='home-list'>
+                <li>
+                    {(props.value !== null && transactions !== null) ? transactions.map(transaction => (<li>{transaction.lasttransaction}</li>)) : (props.value !== null) ? <h1>No Transaction History for {props.value.name}</h1> : null}
+                </li>
             </ul>
         </div>
         </Fragment>

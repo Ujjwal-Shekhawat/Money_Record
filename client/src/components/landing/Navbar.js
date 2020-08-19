@@ -16,7 +16,7 @@ const visitor = (
 
 function Navbar() {
     const authContext = useContext(AuthContext);
-    const { isAuthenticated, logout, user } = authContext;
+    const { isAuthenticated, logout, user, loading } = authContext;
     
     const onLogout = () => {
         logout();
@@ -37,7 +37,7 @@ function Navbar() {
 
     return (
         <div>
-            { isAuthenticated ? auth : visitor }
+            { (isAuthenticated && !loading) ? auth : visitor }
         </div>
     )
 }

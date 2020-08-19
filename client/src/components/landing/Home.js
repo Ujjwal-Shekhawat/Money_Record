@@ -11,11 +11,11 @@ const Home = () => {
 
     useEffect(() => {
         authContext.loadUser();
-    }, [    ]);
+    }, [loading, isAuthenticated]);
 
     return (
         <div>
-            { (isAuthenticated && !loading) ? <Transactions value={user}/> : <Redirect to="/auth/login" /> }
+            { (isAuthenticated && !loading) ? <Transactions value={user}/> : (!loading) ? <Redirect to="/auth/login" /> : <h1>Loading</h1>}
         </div>
     )
 }
