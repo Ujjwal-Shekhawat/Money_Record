@@ -15,7 +15,7 @@ const Home = () => {
 
     return (
         <div>
-            { (isAuthenticated) ? <Transactions value={user}/> : <Redirect to='/auth/login' /> }
+            { (isAuthenticated) ? <Transactions value={user}/> : <Redirect to="/auth/login" /> }
         </div>
     )
 }
