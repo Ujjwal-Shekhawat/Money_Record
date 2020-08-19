@@ -227,3 +227,7 @@ body {
   animation: btn-anim4 1s linear infinite;
   animation-delay: .75s
 }
+
+.avoid-collision {
+  margin-top: 4%;
+}

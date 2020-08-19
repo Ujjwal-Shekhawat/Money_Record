@@ -10,13 +10,18 @@ const Transactions = (props) => {
         getTransactions();
     }, [props.value]);
     return (
-        <Fragment>
         <div>
-            <ul> 
-                {(props.value !== null && transactions.length !== 0) ? transactions.map(transaction => (<div><li>{transaction.lasttransaction}</li><br /></div>)) : (props.value !== null) ? <h1>No Transaction History for {props.value.name}</h1> : null}
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        <div className=''>
+            <ul className='avoid-collision'> 
+                {(props.value !== null && transactions.length !== 0) ? transactions.map(transaction => (<div><p> {props.value.name}</p><li>{transaction.lasttransaction}</li><br /></div>)) : (props.value !== null) ? <h1>No Transaction History for {props.value.name}</h1> : null}
             </ul>
         </div>
-        </Fragment>
+        </div>
     )
 }
 
