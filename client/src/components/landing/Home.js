@@ -4,6 +4,9 @@ import AuthContext from '../../context/auth/authContext';
 import { Redirect } from 'react-router-dom';
 import Transactions from './Transactions';
 
+//Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 const Home = () => {
     const authContext = useContext(AuthContext);
     

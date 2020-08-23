@@ -16,9 +16,9 @@ const Transactions = (props) => {
             <br />
             <br />
             <br />
-        <div className=''>
+        <div className='container'>
             <ul className='avoid-collision'> 
-                {(props.value !== null && transactions.length !== 0) ? transactions.map(transaction => (<div><p> {props.value.name}</p><li>{transaction.lasttransaction}</li><br /></div>)) : (props.value !== null) ? <h1>No Transaction History for {props.value.name}</h1> : null}
+                {(props.value !== null && transactions.length !== 0) ? transactions.map(transaction => (<div className='row'><p className='col-sm-3'> {props.value.name}</p><li>{transaction.lasttransaction}</li><br /></div>)) : (props.value !== null) ? <h1>No Transaction History for {props.value.name}</h1> : null}
             </ul>
         </div>
         </div>

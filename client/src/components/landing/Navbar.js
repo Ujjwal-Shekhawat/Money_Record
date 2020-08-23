@@ -33,7 +33,7 @@ function Navbar() {
 
     useEffect(() => {
 
-    }, [isAuthenticated]);
+    }, [isAuthenticated, user]);
 
     return (
         <div>
