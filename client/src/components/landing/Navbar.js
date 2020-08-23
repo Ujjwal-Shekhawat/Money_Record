@@ -1,6 +1,7 @@
 import React, { Fragment, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const visitor = (
     <div>
@@ -19,10 +20,7 @@ const visitor = (
             <a class='navbar-brand mr-auto' href='#'>ICON</a>
             <div class='collapse navbar-collapse' id='Navbar'>
                 <ul class='navbar-nav mr-auto'>
-                    <li class='nav-item'><a class='nav-link active' href='#'><span class='fa fa-home'></span>Home</a></li>
-                    <li class='nav-item'><a class='nav-link' href='aboutus.html'><span class='fa fa-info'></span>About Us</a></li>
-                    <li class='nav-item'><a class='nav-link' href='#'><span class='fa fa-list'></span>Menu</a></li>
-                    <li class='nav-item'><a class='nav-link' href='#'><span class='fa fa-address-card'></span>Contact</a></li>
+                    <li class='nav-item'><a class='nav-link active' href='/'>Home</a></li>
                 </ul>
             </div>
         </div>
