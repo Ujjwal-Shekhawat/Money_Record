@@ -16,11 +16,22 @@ const Transactions = (props) => {
             <br />
             <br />
             <br />
-        <div className='container'>
-            <ul className='avoid-collision'> 
-                {(props.value !== null && transactions.length !== 0) ? transactions.map(transaction => (<div className='row'><p className='col-sm-3'> {props.value.name}</p><li>{transaction.lasttransaction}</li><br /></div>)) : (props.value !== null) ? <h1>No Transaction History for {props.value.name}</h1> : null}
-            </ul>
-        </div>
+            <header class="jumbotron">
+                <div class="container">
+                    <div class="row row-header">
+                        <div class="col-12 col-sm-6">
+                        <h1>Welcome {(props.value !== null) ? props.value.name : <p>Loading</p>}</h1>
+                    </div>
+                    <div class="col-12 col-sm">
+                    </div>
+                    </div>
+                </div>
+            </header>
+            <div className='container'>
+                <ul className='row'> 
+                    {(props.value !== null && transactions.length !== 0) ? transactions.map(transaction => (<div className=''><p className='col-sm-3'> {props.value.name}</p><p className='col-sm-9'>{transaction.lasttransaction}</p><br /></div>)) : (props.value !== null) ? <h1>No Transaction History for {props.value.name}</h1> : null}
+                </ul>
+            </div>
         </div>
     )
 }
