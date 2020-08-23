@@ -7,6 +7,7 @@ import './App.css';
 import AuthState from './context/auth/AuthState';
 import TransactionState from './context/transactions/transactionState';
 import Login from './components/auth/Login';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (

@@ -4,7 +4,7 @@ import AuthContext from '../../context/auth/authContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const visitor = (
-    <div>
+    <Fragment>
         {/* <nav className='Navbar'>
             <ul>
                 <h4>Money Record</h4>
@@ -12,7 +12,7 @@ const visitor = (
                 <li><Link to='/auth/login'>Login</Link></li>
             </ul>
         </nav> */}
-        <nav class='navbar navbar-dark navbar-expand-sm fixed-top'>
+        <nav class='navbar navbar-light navbar-expand-sm fixed-top'>
         <div class='container'>
             <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#Navbar'>
                 <span class='navbar-toggler-icon' href='#'></span>
@@ -25,7 +25,7 @@ const visitor = (
             </div>
         </div>
     </nav>
-    </div>
+    </Fragment>
 )
 
 function Navbar() {
@@ -50,9 +50,9 @@ function Navbar() {
     }, [isAuthenticated, user]);
 
     return (
-        <div>
+        <Fragment>
             { (isAuthenticated && !loading) ? auth : visitor }
-        </div>
+        </Fragment>
     )
 }
 
