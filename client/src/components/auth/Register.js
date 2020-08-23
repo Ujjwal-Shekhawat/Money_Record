@@ -41,33 +41,28 @@ const Register = (props) => {
     } 
 
     return (
-        <div className="login-box">
-            <h2>Register</h2>
-            <form>
-                <div className="user-box">
-                    <input type="text" name='name' value={name} onChange={onFormChange}/>
-                    <label>Username</label>
+        <div>
+            <div className='container'>
+            <form onSubmit={onSubmit}>
+                <div class="form-group">
+                    <label for="">Name</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name" name='name' value={name} onChange={onFormChange} />
                 </div>
-                <div className="user-box">
-                    <input type='email' name='email' value={email} onChange={onFormChange}/>
-                    <label>Email</label>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" name='email' value={email} onChange={onFormChange} />
                 </div>
-                <div className="user-box">
-                    <input type="password" name='password' value={password} onChange={onFormChange}/>
-                    <label>Password</label>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name='password' value={password} onChange={onFormChange} />
                 </div>
-                <div className="user-box">
-                    <input type="password" name='password2' value={password2} onChange={onFormChange}/>
-                    <label>Confirm Password</label>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Confirm Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password" name='password2' value={password2} onChange={onFormChange} />
                 </div>
-                <a onClick={onSubmit}>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                Register
-                </a>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
+            </div>
         </div>
     )
 }

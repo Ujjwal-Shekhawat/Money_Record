@@ -12,15 +12,16 @@ const visitor = (
                 <li><Link to='/auth/login'>Login</Link></li>
             </ul>
         </nav> */}
-        <nav class='navbar navbar-light navbar-expand-sm fixed-top'>
+        <nav class='navbar navbar-light navbar-expand-sm fixed-top custom-nav-bar'>
         <div class='container'>
             <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#Navbar'>
                 <span class='navbar-toggler-icon' href='#'></span>
             </button>
-            <a class='navbar-brand mr-auto' href='#'>ICON</a>
+            <a class='navbar-brand mr-auto' href='#'>Money Record</a>
             <div class='collapse navbar-collapse' id='Navbar'>
                 <ul class='navbar-nav mr-auto'>
-                    <li class='nav-item'><a class='nav-link active' href='/'>Home</a></li>
+                    <li class='nav-item'><Link to='/auth/register' class='nav-link active'>Register</Link></li>
+                    <li class='nav-item'><Link to='/auth/login' class='nav-link active'>Login</Link></li>
                 </ul>
             </div>
         </div>
@@ -38,11 +39,27 @@ function Navbar() {
 
     const auth = (
         <Fragment>
+        {/* <nav className='Navbar'>
             <ul>
                 <h4>Money Record</h4>
-                <li><a onClick={onLogout} href="/auth/login"><span>Logout</span></a></li>
+                <li><Link to='/auth/register'>Register</Link></li>
+                <li><Link to='/auth/login'>Login</Link></li>
             </ul>
-        </Fragment>
+        </nav> */}
+        <nav class='navbar navbar-light navbar-expand-sm fixed-top custom-nav-bar'>
+        <div class='container'>
+            <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#Navbar'>
+                <span class='navbar-toggler-icon' href='#'></span>
+            </button>
+            <a class='navbar-brand mr-auto' href='#'>Money Record</a>
+            <div class='collapse navbar-collapse' id='Navbar'>
+                <ul class='navbar-nav mr-auto'>
+                    <li class='nav-item'><Link to='/auth/login' class='nav-link active' onClick={onLogout}>Logout</Link></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    </Fragment>
     )
 
     useEffect(() => {

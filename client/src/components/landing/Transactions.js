@@ -10,12 +10,7 @@ const Transactions = (props) => {
         getTransactions();
     }, [props.value]);
     return (
-        <div>
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
+        <Fragment>
             <header class="jumbotron">
                 <div class="container">
                     <div class="row row-header">
@@ -32,7 +27,7 @@ const Transactions = (props) => {
                     {(props.value !== null && transactions.length !== 0) ? transactions.map(transaction => (<div className=''><p className='col-sm-3'> {props.value.name}</p><p className='col-sm-9'>{transaction.lasttransaction}</p><br /></div>)) : (props.value !== null) ? <h1>No Transaction History for {props.value.name}</h1> : null}
                 </ul>
             </div>
-        </div>
+        </Fragment>
     )
 }
 

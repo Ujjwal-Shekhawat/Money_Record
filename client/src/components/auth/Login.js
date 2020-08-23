@@ -36,28 +36,22 @@ const Login = (props) => {
     
 
     return (
-        <Fragment>
-            <div className="login-box">
-                <h2>Login</h2>
-                <form>
-                    <div className="user-box">
-                        <input type='email' name='email' value={email} onChange={onChange} />
-                        <label>Email</label>
-                    </div>
-                    <div className="user-box">
-                        <input type='password' name='password' value={password} onChange={onChange} />
-                        <label>Password</label>
-                    </div>
-                    <a onClick={onSubmit}>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    Login
-                    </a>
-                </form>
+        <div>
+            <div className='container'>
+            <form onSubmit={onSubmit}>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" name='email' value={email} onChange={onChange} />
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name='password' value={password} onChange={onChange} />
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
             </div>
-        </Fragment>
+        </div>
     )
 }
 
