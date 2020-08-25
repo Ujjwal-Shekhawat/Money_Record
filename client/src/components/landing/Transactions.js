@@ -7,6 +7,8 @@ const Transactions = (props) => {
         newTransaction: 0,
     });
 
+    const {newTransaction} = recentTransaction;
+
     const context = useContext(TransactionContext);
 
     const { transactions, getTransactions } = context;
