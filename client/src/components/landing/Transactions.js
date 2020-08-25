@@ -72,7 +72,7 @@ const Transactions = (props) => {
             </div> */}
             <div className='container'>
                 <div /* className='row row-content justify-content-center' */> 
-                    {(props.value !== null && transactions !== undefined && transactions !== null && transactions != 0) ? <TransactionsBlocks value={props.value}/> : (props.value !== null) ? <InitTransactions value={props.value} /> : null}
+                    {(props.value !== null && transactions !== undefined && transactions !== null && transactions != 0) ? <TransactionsBlocks value={props.value}/>/* Later pass transactions so delete and update can be implimented */ : (props.value !== null) ? <InitTransactions value={props.value} /> : null}
                 </div>
             </div>
             <footer className='footer'>

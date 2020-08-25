@@ -81,7 +81,6 @@ function TransactionsBlocks(props) {
             <div className='row'>
                 <p className='whitePink col-sm-12'>Comment : {transaction.comment}</p>
                 <p className='whitePink col-sm-12'>Amount spent : {transaction.lasttransaction}</p>
-                <p className='whitePink col-sm-12'>Remainig Amount : {(i<0) ? transaction.remeaningbalance.value - transactions[i-1].remeaningbalance.value : transaction.remeaningbalance.value }</p>
             </div>
             </div>
         )
@@ -120,6 +119,9 @@ function TransactionsBlocks(props) {
                 </thead>
                 <tbody> */}
                     {/* <tr> */}
+                    <div className='col-sm-12 justify-content-center'>
+                    <h4 className='h4center'>Current Balance : {transactions[transactions.length-1].remeaningbalance}</h4>
+                    </div>
                         {/* {transactions.map((transaction, index) => Design(transaction, index))} */}
                         {transactions.map((transaction, index) => betterDesign(transaction, index))}
                     {/* </tr> */}

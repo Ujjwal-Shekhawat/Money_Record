@@ -63,3 +63,10 @@ td {
   padding-bottom: 10px;
   padding-top: 10px;
 }
+
+.h4center {
+  margin-top: 50px;
+  margin-bottom: 25px;
+  color: crimson;
+  border-bottom: ridge crimson;
+}
