@@ -46,7 +46,7 @@ const Transactions = (props) => {
                         </div> */}
                         <div class="form-group mx-sm-3 mb-2">
                             <label for="inputPassword2" class="sr-only">New Transaction</label>
-                            <input type="number" name='newTransaction' value={newTransaction} onChange={onChange} class="form-control" id="inputPassword2" placeholder="Recent amount spend" />
+                            <input type="number" name='newTransaction' value={ newTransaction   } onChange={onChange} class="form-control" id="inputPassword2" placeholder="Recent amount spend" />
                         </div>
                         <br />
                         <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
