@@ -14,7 +14,7 @@ const Home = () => {
 
     useEffect(() => {
         authContext.loadUser();
-    }, [loading, isAuthenticated]);
+    }, [/* loading */ isAuthenticated]);
 
     return (
         <header className='decide'>

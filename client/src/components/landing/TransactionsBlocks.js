@@ -34,19 +34,7 @@ function TransactionsBlocks(props) {
 
     useEffect(() => { 
         getTransactions();
-        let exp = transactions.map((transaction) => {
-            return transaction.lasttransaction
-        }
-        );
-        console.clear();
-        try{
-            console.log(`Hello!!`);
-            console.log(transactions.length);
-            transactions[0].remeaningbalance = transactions[1].remeaningbalance;
-        } catch(error) {
-            console.clear();
-        }
-    }, [props.value]);
+    }, [/* props.value */]);
 
     const Design = (t, i) => {
     return (
@@ -81,6 +69,10 @@ function TransactionsBlocks(props) {
             <div className='row'>
                 <p className='whitePink col-sm-12'>Comment : {transaction.comment}</p>
                 <p className='whitePink col-sm-12'>Amount spent : {transaction.lasttransaction}</p>
+            </div>
+            <div className='row'>
+                <button type="button" className="btn btn-info col-6">Update</button>
+                <button type="button" className="btn btn-danger col-6">Delete</button>
             </div>
             </div>
         )
