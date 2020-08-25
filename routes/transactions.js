@@ -10,7 +10,7 @@ router.get('/', auth, async (req, res) => {
     console.log(`Transactions route init`);
     try {
         const transaction = await Transaction.find({ user: req.user.id }).sort({
-            date: -1
+            Date: 'desc'
         });
         res.json(transaction);
     } catch(error) {

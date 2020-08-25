@@ -1,10 +1,36 @@
-import React, { useContext, useEffect, Fragment } from 'react';
+import React, { useContext, useEffect, useState, Fragment } from 'react';
 import TransactionContext from '../../context/transactions/transactionContext';
 
 function TransactionsBlocks(props) {
     const context = useContext(TransactionContext);
 
-    const { transactions, getTransactions } = context;
+    const [recentTransaction, setRecentTransaction] = useState({
+        newTransaction: null,
+        comment: ''
+    });
+
+    const { comment, newTransaction } = recentTransaction;
+
+    const { transactions, getTransactions, addTransaction } = context;
+
+    const onChange = e => {
+        setRecentTransaction( {...recentTransaction, [e.target.name]: e.target.value} );
+        console.log(comment);
+    }
+
+    const onSubmit = e => {
+        e.preventDefault();
+        let lasttransaction = Number(newTransaction);
+        if(newTransaction === null || newTransaction <= 0) {
+            alert(`${props.value.name} please enter a non zero positive value`);
+            return;
+        }
+        if(comment == '' || comment == undefined || comment == null) {
+            setRecentTransaction( {...recentTransaction, comment: 'No Comment'} ); // Dosent seem to work 
+        }
+        addTransaction({lasttransaction, comment});
+        //alert(`Feautre coming soon please wait`);
+    }
 
     useEffect(() => {
         getTransactions();
@@ -21,15 +47,57 @@ function TransactionsBlocks(props) {
         )
     }
 
-    const betterDesign = () => {
-        alert(`Thinking`);
-        // I'm still thinkking what to do about this
+    function convert(str) {
+        var date = new Date(str),
+        mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+        day = ("0" + date.getDate()).slice(-2);
+        return [ day, mnth, date.getFullYear(),].join("-");
+        //return [date.getFullYear(), mnth, day].join("-");
+    }
+
+    const betterDesign = (transaction, i) => {
+        let dateData = new Date(String(transaction.Date));
+        console.clear();
+        console.log(dateData);
+        let parsedDate = convert(dateData);
+
+        return (
+            <div className='container box'>
+            <div className='row justify-content-center'>
+                <h5 className='yellow col-sm-12'>Date : {parsedDate}</h5>
+            </div>
+            <div className='row'>
+                <p className='whitePink col-sm-12'>Comment : {transaction.comment}</p>
+                <p className='whitePink col-sm-12'>Amount spent : {transaction.lasttransaction}</p>
+                <p className='whitePink col-sm-12'>Remainig Balance : {transaction.remeaningbalance}</p>
+            </div>
+            </div>
+        )
     }
 
     return (
-        <div>
-            <div>
-                <table class="table table-hover">
+        <div className='container'>
+            <div className='row'>
+                <div className='container'>
+                    <div className='row row-content justify-content-center'>
+                        <form class="form-inline" onSubmit={onSubmit}>
+                            {/* <div class="form-group mb-2">
+                                <label for="staticEmail2" class="sr-only">Email</label>
+                                <input type="text" class="form-control-plaintext" id="staticEmail2" name='comment' value={comment} onChange={onChange} />
+                            </div> */}
+                            <div class="form-group mx-sm-3 mb-2">
+                                <label for="inputPassword2" class="sr-only">New Transaction</label>
+                                <input type="text" name='comment' value={ comment } onChange={onChange} class="form-control" id="inputPassword2" placeholder="Comments" />
+                            </div>
+                            <div class="form-group mx-sm-3 mb-2">
+                                <label for="inputPassword2" class="sr-only">New Transaction</label>
+                                <input type="number" name='newTransaction' value={ newTransaction   } onChange={onChange} class="form-control" id="inputPassword2" placeholder="Recent amount spend" />
+                            </div>
+                            <button type="submit" class="btn btn-danger btn-block mb-2">UPDATE</button>
+                        </form>
+                    </div>
+                </div>
+                {/* <table class="table table-hover">
                 <thead>
                     <tr>
                     <th scope="col">Date</th>
@@ -38,14 +106,15 @@ function TransactionsBlocks(props) {
                     <th scope="col">Remaning Blanace</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody> */}
                     {/* <tr> */}
-                        {transactions.map((transaction, index) => Design(transaction, index))}
+                        {/* {transactions.map((transaction, index) => Design(transaction, index))} */}
+                        {transactions.map((transaction, index) => betterDesign(transaction, index))}
                     {/* </tr> */}
-                </tbody>
-                </table>
+                {/* </tbody>
+                </table> */}
             </div>
-                
+            
             {/* (<div className=''><p className='col-sm-3'> {props.value.name}</p><p className='col-sm-9'>{transaction.lasttransaction}</p><br /></div>)) */}
         </div>
     )

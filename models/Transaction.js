@@ -11,7 +11,8 @@ const TransactionSchema = mongoose.Schema({
     },
     remeaningbalance: {
         type: Number,
-        required: false
+        required: false,
+        default: 100000
     },
     lasttransaction: {
         type: Number,

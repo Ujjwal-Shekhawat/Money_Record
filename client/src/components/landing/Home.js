@@ -17,7 +17,7 @@ const Home = () => {
     }, [loading, isAuthenticated]);
 
     return (
-        <header className='container'>
+        <header className='decide'>
             { (isAuthenticated && !loading) ? <Transactions value={user}/> : (!loading) ? <Redirect to="/auth/login" /> : <h1>Loading</h1>}
         </header>
     )
