@@ -3,6 +3,31 @@
   margin: 10px 10% 0px 10%;
 }
 
+.row-header {
+  margin: 0px auto;
+  padding: 0px;
+}
+
+.row-content {
+  margin: 0px auto;
+  padding: 25px 50px 25px 50px;
+  border-bottom: 2px ridge;
+  min-height: 340px;
+}
+
+.footer {
+  background-color: #D1C4E9;
+  margin: 0px auto;
+  padding: 20px 0px 20px 0px;
+}
+
+.jumbotron {
+  padding: 35px 15px 35px 15px;
+  margin: 0px auto;
+  background: #9575CD;
+  color: floralwhite;
+}
+
 body {
   margin: 10%;
 }
