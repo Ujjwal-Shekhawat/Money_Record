@@ -31,7 +31,7 @@ const Transactions = (props) => {
             return;
         }
         if(comment == '' || comment == undefined || comment == null) {
-            setRecentTransaction( {...recentTransaction, comment: 'No Comment'} ); // Dosent seem to work
+            setRecentTransaction( {...recentTransaction, comment: 'No Comment'} ); // Dosent seem to work 
         }
         addTransaction({lasttransaction, comment});
         //alert(`Feautre coming soon please wait`);
