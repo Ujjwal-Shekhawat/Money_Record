@@ -7,9 +7,10 @@ const Transactions = (props) => {
 
     const [recentTransaction, setRecentTransaction] = useState({
         newTransaction: null,
+        comment: ''
     });
 
-    const {newTransaction} = recentTransaction;
+    const {comment, newTransaction} = recentTransaction;
 
     const { transactions, getTransactions, addTransaction } = context;
 
@@ -19,13 +20,20 @@ const Transactions = (props) => {
 
     const onChange = e => {
         setRecentTransaction( {...recentTransaction, [e.target.name]: e.target.value} );
-        console.log(newTransaction);
+        console.log(comment);
     }
 
     const onSubmit = e => {
         e.preventDefault();
         let lasttransaction = Number(newTransaction);
-        addTransaction({lasttransaction});
+        if(newTransaction === null || newTransaction <= 0) {
+            alert(`${props.value.name} please enter a non zero positive value`);
+            return;
+        }
+        if(comment == '' || comment == undefined || comment == null) {
+            setRecentTransaction( {...recentTransaction, comment: 'No Comment'} ); // Dosent seem to work
+        }
+        addTransaction({lasttransaction, comment});
         //alert(`Feautre coming soon please wait`);
     }
 
@@ -47,8 +55,12 @@ const Transactions = (props) => {
                     <form class="form-inline" onSubmit={onSubmit}>
                         {/* <div class="form-group mb-2">
                             <label for="staticEmail2" class="sr-only">Email</label>
-                            <input type="text" readonly class="form-control-plaintext" id="staticEmail2" value="email@example.com" />
+                            <input type="text" class="form-control-plaintext" id="staticEmail2" name='comment' value={comment} onChange={onChange} />
                         </div> */}
+                        <div class="form-group mx-sm-3 mb-2">
+                            <label for="inputPassword2" class="sr-only">New Transaction</label>
+                            <input type="text" name='comment' value={ comment } onChange={onChange} class="form-control" id="inputPassword2" placeholder="Comments" />
+                        </div>
                         <div class="form-group mx-sm-3 mb-2">
                             <label for="inputPassword2" class="sr-only">New Transaction</label>
                             <input type="number" name='newTransaction' value={ newTransaction   } onChange={onChange} class="form-control" id="inputPassword2" placeholder="Recent amount spend" />
@@ -59,7 +71,7 @@ const Transactions = (props) => {
             </div>
             <div className='container'>
                 <ul className='row row-content justify-content-center'> 
-                {(props.value !== null && transactions.length !== 0) ? <TransactionsBlocks value={props.value}/> : (props.value !== null) ? <h1>No Transaction History for {props.value.name}</h1> : null}
+                {(props.value !== null && transactions !== undefined && transactions !== null && transactions != 0) ? <TransactionsBlocks value={props.value}/> : (props.value !== null) ? <h1>No Transaction History for {props.value.name}</h1> : null}
                 </ul>
             </div>
             <footer className='footer'>

@@ -12,9 +12,10 @@ function TransactionsBlocks(props) {
 
     const Design = (t, i) => {
     return (
-        <tr>
-            <th scope="row" className='itr'>{Date(t.Date)}</th>
+        <tr key={i}>
+            <th scope="row" className='itr'>{t.Date}</th>
             <td className='itr'>{t.lasttransaction}</td>
+            <td className='itr'>{t.comment}</td>
             <td className='itr'>Otto</td>
         </tr>
         )
@@ -33,7 +34,8 @@ function TransactionsBlocks(props) {
                     <tr>
                     <th scope="col">Date</th>
                     <th scope="col">Amount</th>
-                    <th scope="col">Remeaning Blanace</th>
+                    <th scope="col">Comment</th>
+                    <th scope="col">Remaning Blanace</th>
                     </tr>
                 </thead>
                 <tbody>
