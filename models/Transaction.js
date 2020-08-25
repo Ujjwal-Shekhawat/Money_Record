@@ -12,11 +12,11 @@ const TransactionSchema = mongoose.Schema({
     remeaningbalance: {
         type: Number,
         required: false,
-        default: 100000
+        default: 0
     },
     lasttransaction: {
         type: Number,
-        require: true
+        required: true
     },
     Date: {
         type: Date,

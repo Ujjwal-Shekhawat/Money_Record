@@ -11,7 +11,7 @@ const TransactionState = (props) => {
     };
 
     const [state, dispach] = useReducer(transactionReducer, initState);
-
+    
     //get transactions
     const getTransactions = async () => {
         try {
@@ -26,6 +26,7 @@ const TransactionState = (props) => {
     // Method to add transaction (Status : Working on it)
     const addTransaction = async (formData) => {
         try {
+            console.clear();
             console.log(formData);
             const config = {
                 headers: {

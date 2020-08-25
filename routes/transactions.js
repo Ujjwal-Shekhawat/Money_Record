@@ -28,11 +28,12 @@ router.post(
     if(!errors.isEmpty()) {
         return res.status(400).json({ message: `Cannot procees without entering lasttransaction amount` });
     }
-    const { lasttransaction, comment } = req.body;
+    const { lasttransaction, comment, remeaningbalance } = req.body;
     try {
         const transaction = new Transaction({
             user: req.user.id,
             lasttransaction,
+            remeaningbalance,
             comment
         });
         const completed = await transaction.save();

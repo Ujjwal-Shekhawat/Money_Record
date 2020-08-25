@@ -32,8 +32,20 @@ function TransactionsBlocks(props) {
         //alert(`Feautre coming soon please wait`);
     }
 
-    useEffect(() => {
+    useEffect(() => { 
         getTransactions();
+        let exp = transactions.map((transaction) => {
+            return transaction.lasttransaction
+        }
+        );
+        console.clear();
+        try{
+            console.log(`Hello!!`);
+            console.log(transactions.length);
+            transactions[0].remeaningbalance = transactions[1].remeaningbalance;
+        } catch(error) {
+            console.clear();
+        }
     }, [props.value]);
 
     const Design = (t, i) => {
@@ -57,7 +69,7 @@ function TransactionsBlocks(props) {
 
     const betterDesign = (transaction, i) => {
         let dateData = new Date(String(transaction.Date));
-        console.clear();
+        //console.clear();
         console.log(dateData);
         let parsedDate = convert(dateData);
 
@@ -69,7 +81,7 @@ function TransactionsBlocks(props) {
             <div className='row'>
                 <p className='whitePink col-sm-12'>Comment : {transaction.comment}</p>
                 <p className='whitePink col-sm-12'>Amount spent : {transaction.lasttransaction}</p>
-                <p className='whitePink col-sm-12'>Remainig Amount : {transaction.remeaningbalance}</p>
+                <p className='whitePink col-sm-12'>Remainig Amount : {(i<0) ? transaction.remeaningbalance.value - transactions[i-1].remeaningbalance.value : transaction.remeaningbalance.value}</p>
             </div>
             </div>
         )
@@ -80,16 +92,16 @@ function TransactionsBlocks(props) {
             <div className='row'>
                 <div className='container'>
                     <div className='row row-content justify-content-center'>
-                        <form class="form-inline" onSubmit={onSubmit}>
+                        <form className="form-inline" onSubmit={onSubmit}>
                             {/* <div class="form-group mb-2">
                                 <label for="staticEmail2" class="sr-only">Email</label>
                                 <input type="text" class="form-control-plaintext" id="staticEmail2" name='comment' value={comment} onChange={onChange} />
                             </div> */}
-                            <div class="form-group mx-sm-3 mb-2">
+                            <div className="form-group mx-sm-3 mb-2">
                                 <label for="inputPassword2" class="sr-only">New Transaction</label>
                                 <input type="text" name='comment' value={ comment } onChange={onChange} class="form-control" id="inputPassword2" placeholder="Comments" />
                             </div>
-                            <div class="form-group mx-sm-3 mb-2">
+                            <div className="form-group mx-sm-3 mb-2">
                                 <label for="inputPassword2" class="sr-only">New Transaction</label>
                                 <input type="number" name='newTransaction' value={ newTransaction   } onChange={onChange} class="form-control" id="inputPassword2" placeholder="Recent amount spend" />
                             </div>
