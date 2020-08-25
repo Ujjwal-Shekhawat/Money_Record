@@ -3,15 +3,15 @@ import TransactionContext from '../../context/transactions/transactionContext';
 import TransactionsBlocks from './TransactionsBlocks';
 
 const Transactions = (props) => {
+    const context = useContext(TransactionContext);
+
     const [recentTransaction, setRecentTransaction] = useState({
-        newTransaction: 0,
+        newTransaction: null,
     });
 
     const {newTransaction} = recentTransaction;
 
-    const context = useContext(TransactionContext);
-
-    const { transactions, getTransactions } = context;
+    const { transactions, getTransactions, addTransaction } = context;
 
     useEffect(() => {
         getTransactions();
@@ -19,11 +19,14 @@ const Transactions = (props) => {
 
     const onChange = e => {
         setRecentTransaction( {...recentTransaction, [e.target.name]: e.target.value} );
+        console.log(newTransaction);
     }
 
     const onSubmit = e => {
         e.preventDefault();
-        alert(`Featire coming soon please wait`);
+        let lasttransaction = Number(newTransaction);
+        addTransaction({lasttransaction});
+        //alert(`Feautre coming soon please wait`);
     }
 
     return (
@@ -50,8 +53,7 @@ const Transactions = (props) => {
                             <label for="inputPassword2" class="sr-only">New Transaction</label>
                             <input type="number" name='newTransaction' value={ newTransaction   } onChange={onChange} class="form-control" id="inputPassword2" placeholder="Recent amount spend" />
                         </div>
-                        <br />
-                        <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
+                        <button type="submit" class="btn btn-primary mb-2">UPDATE</button>
                     </form>
                 </div>
             </div>

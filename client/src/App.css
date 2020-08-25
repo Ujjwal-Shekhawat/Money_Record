@@ -1,6 +1,6 @@
 .custom-nav-bar {
   background-color: burlywood;
-  margin: 10px 10% 0px 10%;
+  /* margin: 10px 10% 0px 10%; */
 }
 
 .row-header {
@@ -30,4 +30,10 @@
 
 body {
   margin: 10%;
+}
+
+td {
+  margin: 100px;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
