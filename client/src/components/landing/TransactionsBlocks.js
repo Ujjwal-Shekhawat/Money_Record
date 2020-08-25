@@ -81,7 +81,7 @@ function TransactionsBlocks(props) {
             <div className='row'>
                 <p className='whitePink col-sm-12'>Comment : {transaction.comment}</p>
                 <p className='whitePink col-sm-12'>Amount spent : {transaction.lasttransaction}</p>
-                <p className='whitePink col-sm-12'>Remainig Amount : {(i<0) ? transaction.remeaningbalance.value - transactions[i-1].remeaningbalance.value : transaction.remeaningbalance.value}</p>
+                <p className='whitePink col-sm-12'>Remainig Amount : {(i<0) ? transaction.remeaningbalance.value - transactions[i-1].remeaningbalance.value : transaction.remeaningbalance.value }</p>
             </div>
             </div>
         )
