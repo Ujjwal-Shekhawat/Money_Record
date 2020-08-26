@@ -44,14 +44,23 @@ router.post(
     }
 });
 
+router.put('/:id/:value', [auth], async (req, res) => {
+    try {
+        await Transaction.findByIdAndUpdate(req.params.id, {remeaningbalance: req.params.value});
+    } catch(error) {
+        console.log(error.message);
+        return res.status(500).json({ message: "Server error" });
+    }
+});
+
 router.delete('/:id', [auth], async (req, res) => {
     try {
         await Transaction.findByIdAndRemove(req.params.id);
         res.status(200).json({ message: "Transaction deleted" });
     } catch(error) {
         console.log(error.message);
-        return res.status(500).json({ message: "Server errro" });
+        return res.status(500).json({ message: "Server error" });
     }
-})
+});
 
 module.exports = router;

@@ -43,7 +43,7 @@ function TransactionsList({transaction, index, delFunction, forceUpdate}) {
             </div>)
             :
             (<div className='row'>
-                <h4 className='whitePink col-sm-12'>This element will be removed later</h4>
+                <h4 className='whitePink col-sm-12'>This element will be removed later ${transaction.remeaningbalance}</h4>
             </div>) }
         </div>
     )

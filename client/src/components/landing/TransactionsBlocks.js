@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState, Fragment } from 'react';
 import TransactionContext from '../../context/transactions/transactionContext';
 import TransactionsList from './TransactionsList';
+import Axios from 'axios';
 
 function TransactionsBlocks(props) {
     
@@ -38,6 +39,7 @@ function TransactionsBlocks(props) {
 
     useEffect(() => { 
         getTransactions();
+        upd();
     }, [props.value]);
 
     const Design = (t, i) => {
@@ -86,13 +88,22 @@ function TransactionsBlocks(props) {
         await transactions.filter((transaction) => deleteTransaction(transaction._id));
     }
 
+    // Recalculate and assign thi section of code later
     const allRecentTransactions = (transactions.map(transaction => {return transaction.lasttransaction}));
     console.clear();
     console.log(allRecentTransactions);
     const sum = allRecentTransactions.reduce((a, b) => {return a+b});
     console.log(sum);
     // I will impliment it later (To actually save the remeaning balance to data base and not just do math and display it :))
-    const remBalance = transactions[transactions.length-1].remeaningbalance - sum;    
+    const remBalance = transactions[transactions.length-1].remeaningbalance - sum;
+    const id = transactions[transactions.length-1]._id;
+    const upd = async () => {
+        try {
+            await Axios.put(`http://localhost:5000/api/transactions/${id}/${remBalance}`);
+        } catch(error) {
+            
+        }
+    }
 
     return (
         <div className='container'>
