@@ -13,11 +13,11 @@ const Transactions = (props) => {
 
     const {comment, newTransaction} = recentTransaction; */
 
-    const { transactions, getTransactions, addTransaction } = context;
+    const { transactions, getTransactions, addTransaction, loading } = context;
 
     useEffect(() => {
         getTransactions();
-    }, [props.value]);
+    }, [props.value, loading]);
 
     /* const onChange = e => {
         setRecentTransaction( {...recentTransaction, [e.target.name]: e.target.value} );
@@ -72,7 +72,7 @@ const Transactions = (props) => {
             </div> */}
             <div className='container'>
                 <div /* className='row row-content justify-content-center' */> 
-                    {(props.value !== null && transactions !== undefined && transactions !== null && transactions != 0) ? <TransactionsBlocks value={props.value}/>/* Later pass transactions so delete and update can be implimented */ : (props.value !== null) ? <InitTransactions value={props.value} /> : null}
+                    {(props.value !== null && transactions !== undefined && transactions !== null && transactions != 0) ? <TransactionsBlocks value={props.value} record={transactions} />/* Later pass transactions so delete and update can be implimented */ : (props.value !== null) ? <InitTransactions value={props.value} /> : null}
                 </div>
             </div>
             <footer className='footer'>

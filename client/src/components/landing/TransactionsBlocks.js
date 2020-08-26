@@ -1,17 +1,21 @@
 import React, { useContext, useEffect, useState, Fragment } from 'react';
 import TransactionContext from '../../context/transactions/transactionContext';
+import TransactionsList from './TransactionsList';
 
 function TransactionsBlocks(props) {
+    
     const context = useContext(TransactionContext);
-
+    
     const [recentTransaction, setRecentTransaction] = useState({
         newTransaction: null,
         comment: ''
     });
-
+    
+    const forceUpdate = React.useCallback(() => setRecentTransaction({...recentTransaction}), []);
+    
     const { comment, newTransaction } = recentTransaction;
 
-    const { transactions, getTransactions, addTransaction } = context;
+    const { transactions, getTransactions, addTransaction, deleteTransaction } = context;
 
     const onChange = e => {
         setRecentTransaction( {...recentTransaction, [e.target.name]: e.target.value} );
@@ -34,7 +38,7 @@ function TransactionsBlocks(props) {
 
     useEffect(() => { 
         getTransactions();
-    }, [/* props.value */]);
+    }, [props.value]);
 
     const Design = (t, i) => {
     return (
@@ -55,7 +59,7 @@ function TransactionsBlocks(props) {
         //return [date.getFullYear(), mnth, day].join("-");
     }
 
-    const betterDesign = (transaction, i) => {
+    const betterDesign = (transaction, i) => { //later shift this to another component
         let dateData = new Date(String(transaction.Date));
         //console.clear();
         console.log(dateData);
@@ -71,8 +75,8 @@ function TransactionsBlocks(props) {
                 <p className='whitePink col-sm-12'>Amount spent : {transaction.lasttransaction}</p>
             </div>
             <div className='row'>
-                <button type="button" className="btn btn-info col-6">Update</button>
                 <button type="button" className="btn btn-danger col-6">Delete</button>
+                <button type="button" className="btn btn-info col-6">Update</button>
             </div>
             </div>
         )
@@ -111,11 +115,12 @@ function TransactionsBlocks(props) {
                 </thead>
                 <tbody> */}
                     {/* <tr> */}
-                    <div className='col-sm-12 justify-content-center'>
-                    <h4 className='h4center'>Current Balance : {transactions[transactions.length-1].remeaningbalance}</h4>
+                    <div className='container justify-content-center'>
+                    <h4 className='h4center col'>Current Balance : {transactions[transactions.length-1].remeaningbalance}</h4><button type="button" class="btn btn-outline-danger btn-sm float-right">Clear Account</button>
                     </div>
                         {/* {transactions.map((transaction, index) => Design(transaction, index))} */}
-                        {transactions.map((transaction, index) => betterDesign(transaction, index))}
+                        {/* {transactions.map((transaction, index) => betterDesign(transaction, index))} */}
+                        {transactions.map((transaction, index) => <TransactionsList transaction={transaction} index={index} delFunction={deleteTransaction} forceUpdate={forceUpdate} />)}
                     {/* </tr> */}
                 {/* </tbody>
                 </table> */}

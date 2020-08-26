@@ -42,12 +42,25 @@ const TransactionState = (props) => {
         }
     }
 
+    const deleteTransaction = async (id) => {
+        try {
+            console.clear();
+            console.log(id);
+            await axios.delete(`http://localhost:5000/api/transactions/${id}`);
+            dispach({ type: 'transaction_deleted', playload: id });
+            getTransactions();
+        } catch(error) {
+            console.log(error.message);
+        }
+    }
+
     return (
         <TranssactionContext.Provider
             value={{
                 transactions: state.transactions,
                 getTransactions,
-                addTransaction
+                addTransaction,
+                deleteTransaction
             }}>
             {props.children}
         </TranssactionContext.Provider>
