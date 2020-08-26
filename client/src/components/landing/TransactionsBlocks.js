@@ -49,7 +49,7 @@ function TransactionsBlocks(props) {
             <td className='itr'>Otto</td>
         </tr>
         )
-    }
+    };
 
     function convert(str) {
         var date = new Date(str),
@@ -57,7 +57,7 @@ function TransactionsBlocks(props) {
         day = ("0" + date.getDate()).slice(-2);
         return [ day, mnth, date.getFullYear(),].join("-");
         //return [date.getFullYear(), mnth, day].join("-");
-    }
+    };
 
     const betterDesign = (transaction, i) => { //later shift this to another component
         let dateData = new Date(String(transaction.Date));
@@ -80,7 +80,19 @@ function TransactionsBlocks(props) {
             </div>
             </div>
         )
+    };
+
+    const clearUserTransactions = async () => {
+        await transactions.filter((transaction) => deleteTransaction(transaction._id));
     }
+
+    const allRecentTransactions = (transactions.map(transaction => {return transaction.lasttransaction}));
+    console.clear();
+    console.log(allRecentTransactions);
+    const sum = allRecentTransactions.reduce((a, b) => {return a+b});
+    console.log(sum);
+    // I will impliment it later (To actually save the remeaning balance to data base and not just do math and display it :))
+    const remBalance = transactions[transactions.length-1].remeaningbalance - sum;    
 
     return (
         <div className='container'>
@@ -116,7 +128,7 @@ function TransactionsBlocks(props) {
                 <tbody> */}
                     {/* <tr> */}
                     <div className='container justify-content-center'>
-                    <h4 className='h4center col'>Current Balance : {transactions[transactions.length-1].remeaningbalance}</h4><button type="button" class="btn btn-outline-danger btn-sm float-right">Clear Account</button>
+                    <h4 className='h4center col'>Current Balance : {transactions[transactions.length-1].remeaningbalance - sum}</h4><button type="button" class="btn btn-outline-danger btn-sm float-right" onClick={clearUserTransactions}>Clear Account</button>
                     </div>
                         {/* {transactions.map((transaction, index) => Design(transaction, index))} */}
                         {/* {transactions.map((transaction, index) => betterDesign(transaction, index))} */}

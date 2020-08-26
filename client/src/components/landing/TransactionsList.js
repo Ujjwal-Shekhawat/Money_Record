@@ -17,12 +17,14 @@ function TransactionsList({transaction, index, delFunction, forceUpdate}) {
     const id = transaction._id;
 
     const deleteTransaction = e => {
-        delFunction(e);
-        forceUpdate();
+        let conformation = window.confirm(`Are you sure you want to remove this transaction`);
+        if(conformation === true)
+            delFunction(e);
+        else 
+            forceUpdate();
     }
 
     useEffect(() => {
-
     }, [])
 
     return (
@@ -35,12 +37,14 @@ function TransactionsList({transaction, index, delFunction, forceUpdate}) {
                 <p className='whitePink col-sm-12'>Amount spent : {transaction.lasttransaction}</p>
             </div>
             { (transaction.comment != 'Init account') ? 
-            (<div className='row'>
-                <button type="button" className="btn btn-danger col-6" onClick={() => deleteTransaction(id)}>Delete</button>
-                <button type="button" className="btn btn-info col-6">Update</button>
+            (<div className='row box'>
+                <button type="button" className="btn btn-danger col-5" onClick={() => deleteTransaction(id)}>Delete</button>
+                <button type="button" className="btn btn-info col-5 offset-2">Update</button>
             </div>)
             :
-            <p>Protected Division</p>}
+            (<div className='row'>
+                <h4 className='whitePink col-sm-12'>This element will be removed later</h4>
+            </div>) }
         </div>
     )
 }
