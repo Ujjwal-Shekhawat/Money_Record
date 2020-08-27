@@ -55,6 +55,7 @@ function Navbar() {
             <div class='collapse navbar-collapse' id='Navbar'>
                 <ul class='navbar-nav mr-auto'>
                     <li class='nav-item'><Link to='/auth/login' class='nav-link active' onClick={onLogout}>Logout</Link></li>
+                    <li class='nav-item'><Link to='/' class='nav-link active'>Refresh</Link></li> {/** Later conver this ro chat window */}
                 </ul>
             </div>
         </div>

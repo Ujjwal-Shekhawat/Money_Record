@@ -31,9 +31,11 @@ const Register = (props) => {
         e.preventDefault();
         if(name === '' || email === '' || password === '') {
             alert(`Please enter valid credentials`);
+            return;
         }
         else if(password !== password2) {
             alert(`Passwords do not match`);
+            return;
         }
         else {
             register( { name, email, password } );
