@@ -34,5 +34,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:5000/"
+  "proxy": "https://desolate-plains-00303.herokuapp.com//"
 }
