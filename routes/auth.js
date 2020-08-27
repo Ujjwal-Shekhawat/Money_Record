@@ -36,12 +36,10 @@ router.post('/',
         try {
             let user = await User.findOne({ email });
             if(!user) {
-                alert('Invalid email'); return;
                 res.status(400).send('Invalid credentials');
             }
             const correctPassword = await bcrypt.compare(password, user.password);
             if(!correctPassword) {
-                alert('Incorrect password'); return;
                 res.status(400).send('Incorrect password');
             }
 
