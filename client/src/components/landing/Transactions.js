@@ -44,7 +44,7 @@ const Transactions = (props) => {
                 <div class="container">
                     <div class="row row-header">
                         <div class="col-12 col-sm-6">
-                            <h1>Welcome {(props.value !== null) ? props.value.name : <p>Loading</p>}</h1>
+                            <h1>Welcome {(props.value !== null) ? (props.value.name == 'Shreya') ? props.value.name (Mum) : props.value.name : <p>Loading</p>}</h1>
                         </div>
                     <div class="col-12 col-sm">
                     </div>
