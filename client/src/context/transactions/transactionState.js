@@ -15,7 +15,7 @@ const TransactionState = (props) => {
     //get transactions
     const getTransactions = async () => {
         try {
-        const result = await axios.get('http://localhost:5000/api/transactions');
+        const result = await axios.get('/api/transactions');
         console.log(result.data);
         dispach({ type: 'get_transactions', payload: result.data });
         } catch(error) {
@@ -33,7 +33,7 @@ const TransactionState = (props) => {
                     'content-type': 'application/json'
                 }
             };
-            const result = await axios.post('http://localhost:5000/api/transactions', formData, config);
+            const result = await axios.post('/api/transactions', formData, config);
             dispach({ type: 'post_transactions', playload: result.data });
             console.log(result.data);
             getTransactions();
@@ -46,7 +46,7 @@ const TransactionState = (props) => {
         try {
             console.clear();
             console.log(id);
-            await axios.delete(`http://localhost:5000/api/transactions/${id}`);
+            await axios.delete(`/api/transactions/${id}`);
             dispach({ type: 'transaction_deleted', playload: id });
             getTransactions();
         } catch(error) {
