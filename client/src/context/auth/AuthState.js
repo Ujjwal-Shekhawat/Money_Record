@@ -31,7 +31,7 @@ const AuthState = (props) => {
         }
 
         try {
-            const result = await axios.get('http://localhost:5000/api/auth');
+            const result = await axios.get('/api/auth');
             console.log(result.data);
             dispatch({ type: 'user_loaded', payload: result.data});
         } catch(error) {
@@ -45,7 +45,7 @@ const AuthState = (props) => {
         } }
         console.log(formData);
         try {
-            const result = await axios.post('http://localhost:5000/api/users', formData, config);
+            const result = await axios.post('/api/users', formData, config);
             dispatch({ type: 'reg_success', payload: result.data });
             loadUser();
         } catch(error) {
@@ -57,7 +57,7 @@ const AuthState = (props) => {
         const config = {headers: {'content-type': 'application/json'}};
         console.log(formData);
         try {
-            const result = await axios.post('http://localhost:5000/api/auth', formData, config);
+            const result = await axios.post('/api/auth', formData, config);
             dispatch({ type: 'login_success', payload: result.data });
             loadUser();
         } catch(err) {
