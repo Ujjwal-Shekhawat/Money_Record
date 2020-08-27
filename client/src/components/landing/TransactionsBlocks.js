@@ -39,7 +39,7 @@ function TransactionsBlocks(props) {
 
     useEffect(() => { 
         getTransactions();
-        upd();
+        //upd();
     }, [props.value]);
 
     const Design = (t, i) => {
