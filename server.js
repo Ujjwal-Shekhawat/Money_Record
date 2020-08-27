@@ -2,7 +2,7 @@ const express = require('express');
 const connectDB = require('./config/database');
 const cors = require('cors');
 const application = express();
-const path = require('path');
+const path = require('path'); 
 
 //Database init
 connectDB();
