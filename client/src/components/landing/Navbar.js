@@ -17,7 +17,7 @@ const visitor = (
             <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#Navbar'>
                 <span class='navbar-toggler-icon' href='#'></span>
             </button>
-            <a class='navbar-brand mr-auto' href='#'>Money Record</a>
+            <a class='navbar-brand mr-auto' href='/'>Money Record</a>
             <div class='collapse navbar-collapse' id='Navbar'>
                 <ul class='navbar-nav mr-auto'>
                     <li class='nav-item'><Link to='/auth/register' class='nav-link active'>Register</Link></li>
