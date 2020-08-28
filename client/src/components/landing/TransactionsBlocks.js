@@ -41,6 +41,18 @@ function TransactionsBlocks(props) {
         //alert(`Feautre coming soon please wait`);
     }
 
+    const onSubmit1 = e => {
+        e.preventDefault();
+        if(newTransaction === null || newTransaction <= 0) {
+            alert(`${props.value.name} please enter a non zero positive value`);
+            return;
+        }
+        let lasttransaction = Number(-1*newTransaction);
+        let comment = 'Added funds';
+        addTransaction({lasttransaction, comment});
+        //alert(`Feautre coming soon please wait`);
+    }
+
     useEffect(() => { 
         getTransactions();
         //upd();
@@ -131,6 +143,7 @@ function TransactionsBlocks(props) {
                         </form>
                     </div>
                 </div>
+
                 {/* <table class="table table-hover">
                 <thead>
                     <tr>
@@ -151,6 +164,19 @@ function TransactionsBlocks(props) {
                     {/* </tr> */}
                 {/* </tbody>
                 </table> */}
+
+                <div className='container'>
+                    <div className='row row-content justify-content-center'>
+                        <form className="form-inline" onSubmit={onSubmit1}>
+                            <div className="form-group mx-sm-3 mb-2">
+                                <label for="inputPassword2" class="sr-only">New Transaction</label>
+                                <input type="number" name='newTransaction' value={ newTransaction   } onChange={onChange} class="form-control" id="inputPassword2" placeholder="Add funds" />
+                            </div>
+                            <button type="submit" class="btn btn-danger btn-block mb-2">Add Amount</button>
+                        </form>
+                    </div>
+                </div>
+
             </div>
             
             {/* (<div className=''><p className='col-sm-3'> {props.value.name}</p><p className='col-sm-9'>{transaction.lasttransaction}</p><br /></div>)) */}
