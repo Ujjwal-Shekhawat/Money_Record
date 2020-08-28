@@ -55,7 +55,7 @@ function Navbar() {
             <div class='collapse navbar-collapse' id='Navbar'>
                 <ul class='navbar-nav mr-auto'>
                     <li class='nav-item'><Link to='/auth/login' class='nav-link active' onClick={onLogout}>Logout</Link></li>
-                    <li class='nav-item'><Link to='https://primchatapp.herokuapp.com/' class='nav-link active'>Chat Section</Link></li> {/** Later conver this ro chat window */}
+                    <li class='nav-item'><a href='https://primchatapp.herokuapp.com/' class='nav-link active'>Chat Section</a></li> {/** Later conver this ro chat window */}
                 </ul>
             </div>
         </div>
