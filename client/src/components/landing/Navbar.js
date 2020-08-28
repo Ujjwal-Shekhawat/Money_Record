@@ -27,7 +27,7 @@ const visitor = (
                             More Actions
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Chat Section</a>
+                            <a class="dropdown-item" href="https://primchatapp.herokuapp.com/">Chat Section</a>
                             <a class="dropdown-item" href="#">Coming Soon ...</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Developer Home Page</a>
@@ -72,7 +72,7 @@ function Navbar() {
                             More Actions
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Chat Section</a>
+                            <a class="dropdown-item" href="https://primchatapp.herokuapp.com/">Chat Section</a>
                             <a class="dropdown-item" href="#">Coming Soon ...</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Developer Home Page</a>
