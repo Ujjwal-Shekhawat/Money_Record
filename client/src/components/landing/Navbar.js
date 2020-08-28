@@ -1,5 +1,5 @@
 import React, { Fragment, useContext, useEffect } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -21,7 +21,7 @@ const visitor = (
             <div class='collapse navbar-collapse' id='Navbar'>
                 <ul class='navbar-nav mr-auto'>
                     <li class='nav-item'><Link to='/auth/register' class='nav-link active'>Register</Link></li>
-                    <li class='nav-item'><Redirect to='/auth/login' class='nav-link active'>Login</Redirect></li>
+                    <li class='nav-item'><Link to='/auth/login' class='nav-link active'>Login</Link></li>
                 </ul>
             </div>
         </div>
