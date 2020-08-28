@@ -67,6 +67,17 @@ function Navbar() {
                 <ul class='navbar-nav mr-auto'>
                     <li class='nav-item'><Link to='/auth/login' class='nav-link active' onClick={onLogout}>Logout</Link></li>
                     <li class='nav-item'><a href='https://primchatapp.herokuapp.com/' class='nav-link active'>Chat Section</a></li> {/** Later conver this ro chat window */}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            More Actions
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Chat Section</a>
+                            <a class="dropdown-item" href="#">Coming Soon ...</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Developer Home Page</a>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
