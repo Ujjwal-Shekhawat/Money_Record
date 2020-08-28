@@ -33,6 +33,10 @@ function TransactionsBlocks(props) {
         if(comment == '' || comment == undefined || comment == null) {
             setRecentTransaction( {...recentTransaction, comment: 'No Comment'} ); // Dosent seem to work 
         }
+        if(sum < lasttransaction) {
+            alert(`Sorry ${props.value.name} you dont have enough balance to process this transaction`);
+            return;
+        }
         addTransaction({lasttransaction, comment});
         //alert(`Feautre coming soon please wait`);
     }
