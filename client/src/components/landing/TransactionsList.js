@@ -1,5 +1,4 @@
 import React, { useEffect, useState, Fragment } from 'react';
-import axios from 'axios';
 
 function convert(str) {
     var date = new Date(str),
@@ -14,14 +13,13 @@ function TransactionsList({transaction, index, updFunction, delFunction, forceUp
     const [update, setUpdate] = useState({
         correction: null,
         isEnabeled: false,
-        refresh: false,
     });    //console.clear();
     console.log(dateData);
     let parsedDate = convert(dateData);
 
     const id = transaction._id;
 
-    const { correction, refresh } = update;
+    const { correction } = update;
 
     const enableUpdateForm = () => {
         setUpdate({ ...update ,isEnabeled: !update.isEnabeled });
@@ -50,9 +48,8 @@ function TransactionsList({transaction, index, updFunction, delFunction, forceUp
         if(true) {
             // Update Code here
             try {
-                updFunction(id, correction);
+                updFunction({ id, correction });
             } catch(error) {
-                setUpdate( { ...update, refresh: !refresh } );
                 console.log(error.message);
             }
         }
