@@ -49,8 +49,9 @@ function TransactionsList({transaction, index, delFunction, forceUpdate}) {
         //let choice = window.confirm(`Are you sure you want to update this value of ${transaction.lasttransaction} to ${update.correction}`);
         if(true) {
             // Update Code here
+            let rectifiedCorrection = Number(correction);
             try {
-                const result = await axios.put(`/api/transactions/${id}/${correction}`);
+                const result = await axios.put(`/api/transactions/${id}/${rectifiedCorrection}`);
                 setUpdate( { ...update, refresh: !refresh } );
             } catch(error) {
                 console.log(error.message);
