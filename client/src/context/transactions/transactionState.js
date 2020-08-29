@@ -42,6 +42,17 @@ const TransactionState = (props) => {
         }
     }
 
+    const updateTransaction = async (id, value) => {
+        try {
+            await axios.put(`/api/transactions/${id}/${value}`);
+            dispach({ type: 'update_transaction', payload: id });
+            // alert(refresh);
+            getTransactions();
+        } catch(error) {
+            console.log(error.message);
+        }
+    }
+
     const deleteTransaction = async (id) => {
         try {
             console.clear();
@@ -60,6 +71,7 @@ const TransactionState = (props) => {
                 transactions: state.transactions,
                 getTransactions,
                 addTransaction,
+                updateTransaction,
                 deleteTransaction
             }}>
             {props.children}

@@ -9,7 +9,7 @@ function convert(str) {
     //return [date.getFullYear(), mnth, day].join("-");
 }
 
-function TransactionsList({transaction, index, delFunction, forceUpdate}) {
+function TransactionsList({transaction, index, updFunction, delFunction, forceUpdate}) {
     let dateData = new Date(String(transaction.Date));
     const [update, setUpdate] = useState({
         correction: null,
@@ -49,19 +49,18 @@ function TransactionsList({transaction, index, delFunction, forceUpdate}) {
         //let choice = window.confirm(`Are you sure you want to update this value of ${transaction.lasttransaction} to ${update.correction}`);
         if(true) {
             // Update Code here
-            let rectifiedCorrection = Number(correction);
             try {
-                const result = await axios.put(`/api/transactions/${id}/${rectifiedCorrection}`);
-                setUpdate( { ...update, refresh: !refresh } );
+                updFunction(id, correction);
             } catch(error) {
+                setUpdate( { ...update, refresh: !refresh } );
                 console.log(error.message);
             }
         }
     }
 
     useEffect(() => {
-
-    }, [refresh]);
+        console.log('Using Effect');
+    }, []);
 
     const updateForm = (
         <Fragment>

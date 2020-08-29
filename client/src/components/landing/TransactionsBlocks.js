@@ -16,7 +16,7 @@ function TransactionsBlocks(props) {
     
     const { comment, newTransaction } = recentTransaction;
 
-    const { transactions, getTransactions, addTransaction, deleteTransaction } = context;
+    const { transactions, getTransactions, addTransaction, updateTransaction, deleteTransaction } = context;
 
     const onChange = e => {
         setRecentTransaction( {...recentTransaction, [e.target.name]: e.target.value} );
@@ -53,6 +53,7 @@ function TransactionsBlocks(props) {
         //alert(`Feautre coming soon please wait`);
     }
 
+    const re = false;
     useEffect(() => { 
         getTransactions();
         //upd();
@@ -160,7 +161,7 @@ function TransactionsBlocks(props) {
                     </div>
                         {/* {transactions.map((transaction, index) => Design(transaction, index))} */}
                         {/* {transactions.map((transaction, index) => betterDesign(transaction, index))} */}
-                        {transactions.map((transaction, index) => <TransactionsList transaction={transaction} index={index} delFunction={deleteTransaction} forceUpdate={forceUpdate} />)}
+                        {transactions.map((transaction, index) => <TransactionsList transaction={transaction} index={index} delFunction={deleteTransaction} updFunction={updateTransaction} forceUpdate={forceUpdate} />)}
                     {/* </tr> */}
                 {/* </tbody>
                 </table> */}
