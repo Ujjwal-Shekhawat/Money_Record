@@ -46,7 +46,7 @@ router.post(
 
 router.put('/:id/:value', [auth], async (req, res) => {
     try {
-        await Transaction.findByIdAndUpdate(req.params.id, {lasttransactions: req.params.value});
+        await Transaction.findByIdAndUpdate(req.params.id, {lasttransaction: req.params.value});
     } catch(error) {
         console.log(error.message);
         return res.status(500).json({ message: "Server error" });
