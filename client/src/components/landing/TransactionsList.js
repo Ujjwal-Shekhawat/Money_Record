@@ -14,13 +14,14 @@ function TransactionsList({transaction, index, delFunction, forceUpdate}) {
     const [update, setUpdate] = useState({
         correction: null,
         isEnabeled: false,
+        refresh: false,
     });    //console.clear();
     console.log(dateData);
     let parsedDate = convert(dateData);
 
     const id = transaction._id;
 
-    const { correction } = update;
+    const { correction, refresh } = update;
 
     const enableUpdateForm = () => {
         setUpdate({ ...update ,isEnabeled: !update.isEnabeled });
@@ -50,6 +51,7 @@ function TransactionsList({transaction, index, delFunction, forceUpdate}) {
             // Update Code here
             try {
                 await axios.put(`/api/transactions/${id}/${correction}`);
+                setUpdate( { ...update, refresh: !refresh } );
             } catch(error) {
                 console.log(error.message);
             }
@@ -57,7 +59,7 @@ function TransactionsList({transaction, index, delFunction, forceUpdate}) {
     }
 
     useEffect(() => {
-    }, [])
+    }, [refresh])
 
     const updateForm = (
         <Fragment>
