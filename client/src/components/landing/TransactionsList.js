@@ -50,7 +50,7 @@ function TransactionsList({transaction, index, delFunction, forceUpdate}) {
         if(true) {
             // Update Code here
             try {
-                await axios.put(`/api/transactions/${id}/${correction}`);
+                const result = await axios.put(`/api/transactions/${id}/${correction}`);
                 setUpdate( { ...update, refresh: !refresh } );
             } catch(error) {
                 console.log(error.message);
