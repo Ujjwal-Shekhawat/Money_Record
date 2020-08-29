@@ -50,7 +50,7 @@ const TransactionState = (props) => {
                     'content-type' : 'application/json'
                 }
             }
-            const result = await axios.put(`/api/transactions`, config, formData);
+            const result = await axios.put(`/api/transactions`, formData, config);
             dispach({ type: 'update_transaction', payload: formData.id });
             // alert(refresh);
             getTransactions();
