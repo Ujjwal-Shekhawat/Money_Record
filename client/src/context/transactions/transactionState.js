@@ -33,7 +33,7 @@ const TransactionState = (props) => {
                     'content-type': 'application/json'
                 }
             };
-            const result = await axios.post('/api/transactions', formData, config);
+            const result = await axios.post('/api/transactions', formData, config); 
             dispach({ type: 'post_transactions', playload: result.data });
             console.log(result.data);
             getTransactions();
