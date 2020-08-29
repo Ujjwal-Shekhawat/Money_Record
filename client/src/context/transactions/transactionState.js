@@ -42,18 +42,13 @@ const TransactionState = (props) => {
         }
     }
 
-    const updateTransaction = async (formData) => {
+    const updateTransaction = async (id, value) => {
         try {
-            console.log(formData);
-            const config = {
-                headers : {
-                    'content-type' : 'application/json'
-                }
-            }
-            const result = await axios.put(`/api/transactions`, formData, config);
-            dispach({ type: 'update_transaction', payload: formData.id });
-            // alert(refresh);
+            console.log('result');
+            await axios.put(`http://localhost:5000/api/transactions/${id}/${value}`);
             getTransactions();
+            dispach({ type: 'update_transaction', payload: id });
+            alert('refresh');
         } catch(error) {
             console.log(error.message);
         }

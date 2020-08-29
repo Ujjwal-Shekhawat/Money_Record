@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment } from 'react';
+import React, { useEffect, useState, Fragment, useCallback } from 'react';
 
 function convert(str) {
     var date = new Date(str),
@@ -13,6 +13,7 @@ function TransactionsList({transaction, index, updFunction, delFunction, forceUp
     const [update, setUpdate] = useState({
         correction: null,
         isEnabeled: false,
+        rerender: false,
     });    //console.clear();
     console.log(dateData);
     let parsedDate = convert(dateData);
@@ -38,6 +39,10 @@ function TransactionsList({transaction, index, updFunction, delFunction, forceUp
             forceUpdate();
     }
 
+    const refreshPage = () => {
+        window.location.reload(false);
+    }
+
     const onSubmit = async (e) => {
         e.preventDefault();
         if(update.correction < 0) {
@@ -48,7 +53,9 @@ function TransactionsList({transaction, index, updFunction, delFunction, forceUp
         if(true) {
             // Update Code here
             try {
-                updFunction({ id, correction });
+                let lasttransaction = correction;
+                updFunction(id, lasttransaction);
+                refreshPage();
             } catch(error) {
                 console.log(error.message);
             }
