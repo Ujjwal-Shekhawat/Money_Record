@@ -13,14 +13,14 @@ function TransactionsList({transaction, index, updFunction, delFunction, forceUp
     const [update, setUpdate] = useState({
         correction: null,
         isEnabeled: false,
-        rerender: false,
+        temp: false
     });    //console.clear();
     console.log(dateData);
     let parsedDate = convert(dateData);
 
     const id = transaction._id;
 
-    const { correction } = update;
+    const { correction, isEnabeled } = update;
 
     const enableUpdateForm = () => {
         setUpdate({ ...update ,isEnabeled: !update.isEnabeled });
@@ -43,10 +43,18 @@ function TransactionsList({transaction, index, updFunction, delFunction, forceUp
         window.location.reload(false);
     }
 
+    // Temp feature
+    const timer = () => { setTimeout(() => {
+        setUpdate({ ...update, temp: false });
+        }, 5000);
+        setUpdate({ ...update, temp: true });
+      return () => clearTimeout(timer);
+    };
+
     const onSubmit = async (e) => {
         e.preventDefault();
         if(update.correction < 0) {
-            alert(`Can not enter value less than 0`);
+            timer();
             return;
         }
         //let choice = window.confirm(`Are you sure you want to update this value of ${transaction.lasttransaction} to ${update.correction}`);
@@ -54,8 +62,9 @@ function TransactionsList({transaction, index, updFunction, delFunction, forceUp
             // Update Code here
             try {
                 let lasttransaction = correction;
+                setUpdate({ ...update, isEnabeled: !isEnabeled })
                 updFunction(id, lasttransaction);
-                refreshPage();
+                //refreshPage();
             } catch(error) {
                 console.log(error.message);
             }
@@ -63,11 +72,12 @@ function TransactionsList({transaction, index, updFunction, delFunction, forceUp
     }
 
     useEffect(() => {
-        console.log('Using Effect');
+
     }, []);
 
     const updateForm = (
         <Fragment>
+            {(update.temp === true) ? <p>Hello please enter value greater than zero</p> : null }
             <form onSubmit={onSubmit}>
                 <div class="form-group">
                     <label for="exampleInputEmail1">New value</label>

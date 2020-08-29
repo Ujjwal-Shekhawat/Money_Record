@@ -107,7 +107,7 @@ function TransactionsBlocks(props) {
 
     // Recalculate and assign thi section of code later
     const allRecentTransactions = (transactions.map(transaction => {return transaction.lasttransaction}));
-    console.clear();
+    //console.clear();
     console.log(allRecentTransactions);
     const sum = allRecentTransactions.reduce((a, b) => {return a+b});
     console.log(sum);

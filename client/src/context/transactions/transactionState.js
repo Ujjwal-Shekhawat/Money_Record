@@ -46,9 +46,8 @@ const TransactionState = (props) => {
         try {
             console.log('result');
             await axios.put(`http://localhost:5000/api/transactions/${id}/${value}`);
-            getTransactions();
             dispach({ type: 'update_transaction', payload: id });
-            alert('refresh');
+            getTransactions();
         } catch(error) {
             console.log(error.message);
         }
