@@ -51,7 +51,7 @@ function TransactionsList({transaction, index, delFunction, forceUpdate}) {
             // Update Code here
             let rectifiedCorrection = Number(correction);
             try {
-                const result = await axios.put(`/api/transactions/${id}/${rectifiedCorrection}`);
+                const result = await axios.put(`https://desolate-plains-00303.herokuapp.com/api/transactions/${id}/${rectifiedCorrection}`);
                 setUpdate( { ...update, refresh: !refresh } );
             } catch(error) {
                 console.log(error.message);
