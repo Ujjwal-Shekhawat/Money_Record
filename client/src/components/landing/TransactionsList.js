@@ -1,4 +1,5 @@
 import React, { useEffect, useState, Fragment } from 'react';
+import axios from 'axios';
 
 function convert(str) {
     var date = new Date(str),
@@ -11,6 +12,7 @@ function convert(str) {
 function TransactionsList({transaction, index, delFunction, forceUpdate}) {
     let dateData = new Date(String(transaction.Date));
     const [update, setUpdate] = useState({
+        correction: null,
         isEnabeled: false,
     });    //console.clear();
     console.log(dateData);
@@ -18,9 +20,15 @@ function TransactionsList({transaction, index, delFunction, forceUpdate}) {
 
     const id = transaction._id;
 
+    const { correction } = update;
+
     const enableUpdateForm = () => {
         setUpdate({ ...update ,isEnabeled: !update.isEnabeled });
         console.log(id, update.isEnabeled);
+    }
+
+    const onChange = e => {
+        setUpdate( { ...update, [e.target.name]: e.target.value } );
     }
 
     const deleteTransaction = e => {
@@ -31,15 +39,32 @@ function TransactionsList({transaction, index, delFunction, forceUpdate}) {
             forceUpdate();
     }
 
+    const onSubmit = async (e) => {
+        e.preventDefault();
+        if(update.correction < 0) {
+            alert(`Can not enter value less than 0`);
+            return;
+        }
+        //let choice = window.confirm(`Are you sure you want to update this value of ${transaction.lasttransaction} to ${update.correction}`);
+        if(true) {
+            // Update Code here
+            try {
+                await axios.put(`/api/transactions/${id}/${correction}`);
+            } catch(error) {
+                console.log(error.message);
+            }
+        }
+    }
+
     useEffect(() => {
     }, [])
 
     const updateForm = (
         <Fragment>
-            <form /* onSubmit={onSubmit} */>
+            <form onSubmit={onSubmit}>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" /* name='email' value={email} onChange={onChange} */ />
+                    <label for="exampleInputEmail1">New value</label>
+                    <input type="number" class="form-control" id="exampleInputEmail1" /* placeholder="" */ name='correction' value={correction} onChange={onChange} />
                 </div>
                 <button type="submit" class="btn btn-primary">Update</button>
             </form>
