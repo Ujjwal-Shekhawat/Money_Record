@@ -49,7 +49,7 @@ const Login = (props) => {
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name='password' value={password} onChange={onChange} />
+                    <input type="password" minLength='7' class="form-control" id="exampleInputPassword1" placeholder="Password" name='password' value={password} onChange={onChange} />
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

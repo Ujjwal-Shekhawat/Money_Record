@@ -55,6 +55,7 @@
 }
 
 body {
+  overflow-x: hidden !important;
   background-color: #FFB6C1;
   margin: 0px auto;
   padding: 0px;
@@ -71,6 +72,16 @@ td {
   margin-bottom: 25px;
   color: crimson;
   border-bottom: ridge crimson;
+}
+
+@media screen and (max-width: 667px) {
+  body {
+      overflow-x: hidden !important;
+  }
+  .container {
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+  }
 }
 
 /* .btn-info {

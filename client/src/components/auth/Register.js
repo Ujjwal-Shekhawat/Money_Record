@@ -59,11 +59,11 @@ const Register = (props) => {
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name='password' value={password} onChange={onFormChange} />
+                    <input type="password" minLength='7' class="form-control" id="exampleInputPassword1" placeholder="Password" name='password' value={password} onChange={onFormChange} />
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Confirm Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password" name='password2' value={password2} onChange={onFormChange} />
+                    <input type="password" minLength='7' class="form-control" id="exampleInputPassword1" placeholder="Confirm Password" name='password2' value={password2} onChange={onFormChange} />
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
