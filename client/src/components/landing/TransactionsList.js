@@ -59,11 +59,14 @@ function TransactionsList({transaction, index, updFunction, delFunction, forceUp
         }
         let choice = window.confirm(`Are you sure you want to update this value of ${transaction.lasttransaction} to ${update.correction}`);
         if(choice === true) {
+            const temp = transaction.lasttransaction;
+            transaction.lasttransaction = 'Updating ...'
             // Update Code here
             try {
                 let lasttransaction = correction;
                 setUpdate({ ...update, isEnabeled: !isEnabeled })
                 updFunction(id, lasttransaction);
+                transaction.lasttransaction = temp;
                 //refreshPage();
             } catch(error) {
                 console.log(error.message);
