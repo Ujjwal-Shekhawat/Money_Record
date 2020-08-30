@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from './components/landing/Navbar';
 import HomePage from './components/landing/Home';
@@ -10,13 +10,15 @@ import Login from './components/auth/Login';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+  const [stylestate, setStyleState] = useState('pink');
+
   return (
     <AuthState>
       <TransactionState>
-    <div className="App">
+    <div className={(stylestate == 'pink') ? "App" : "App blue"}>
       <Router>
         <Fragment>
-          <NavBar />
+          <NavBar onChange={(value)=>setStyleState(value)} />
           <Switch>
             <Route exact path = '/' component = {HomePage} />
             <Route exact path = '/auth/register' component = {Regester} />

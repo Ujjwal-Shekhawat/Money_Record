@@ -53,12 +53,12 @@ function TransactionsList({transaction, index, updFunction, delFunction, forceUp
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        if(update.correction < 0) {
+        if(update.correction < 0 || update.correctio == undefined || correction === null) {
             timer();
             return;
         }
-        //let choice = window.confirm(`Are you sure you want to update this value of ${transaction.lasttransaction} to ${update.correction}`);
-        if(true) {
+        let choice = window.confirm(`Are you sure you want to update this value of ${transaction.lasttransaction} to ${update.correction}`);
+        if(choice === true) {
             // Update Code here
             try {
                 let lasttransaction = correction;

@@ -56,7 +56,12 @@
 
 body {
   overflow-x: hidden !important;
-  background-color: #FFB6C1;
+  /* background-color: #FFB6C1; */
+  background-color: #202020;
+  background-image: url(https://i.pinimg.com/736x/b6/b1/5d/b6b15da93c31849577f9c63d3b5c9b58.jpg);
+  background-repeat: repeat;
+  background-position: center;
+  background-size: 100%;
   margin: 0px auto;
   padding: 0px;
 }
@@ -93,3 +98,53 @@ td {
   margin-right: 10px;
   padding: 0px;
 } */
+
+.blue {
+  background-color: #99badd;
+}
+
+.blue .custom-nav-bar{
+  background-color: #0073cf;
+}
+
+.blue .jumbotron {
+  padding: 70px 15px 35px 15px;
+  margin: 0px auto;
+  background: #6488ea;
+  color: whitesmoke;
+}
+
+.blue .footer {
+  background-color:#0073cf;
+  color: aliceblue;
+  margin-top: 100px;
+  margin: 100px 0px 0px 0px;
+  padding: 60px 0px 60px 0px;
+}
+
+.blue .h4center {
+  margin-top: 50px;
+  margin-bottom: 25px;
+  color: #4682b4;
+  border-bottom: ridge #4682b4;
+}
+
+.blue .box {
+  border: solid 3px#73c2fb;
+  margin-bottom: 7%;
+}
+
+.blue .yellow {
+  background-color:#73c2fb;
+  max-height: 35px;
+  margin: 0px auto;
+  border-left: solid 2px#73c2fb;
+}
+
+.blue .whitePink {
+  background-color: #b0e0e6;
+  padding-bottom: 10px;
+  margin: 0px 0px 0px 0px;
+  border-left: solid 2px #b0e0e6;
+}
+
