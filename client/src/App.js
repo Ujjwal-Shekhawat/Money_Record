@@ -15,7 +15,7 @@ function App() {
   return (
     <AuthState>
       <TransactionState>
-    <div className={(stylestate == 'pink') ? "App" : "App blue"}>
+    <div className={(stylestate == 'pink') ? "App pink" : "App blue"}>
       <Router>
         <Fragment>
           <NavBar onChange={(value)=>setStyleState(value)} />

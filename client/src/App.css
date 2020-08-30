@@ -66,6 +66,10 @@ body {
   padding: 0px;
 }
 
+.pink {
+  background-color: #FFB6C1;
+}
+
 td {
   margin: 100px;
   padding-bottom: 10px;
