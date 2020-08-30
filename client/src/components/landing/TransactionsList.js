@@ -53,7 +53,7 @@ function TransactionsList({transaction, index, updFunction, delFunction, forceUp
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        if(update.correction < 0 || update.correctio == undefined || correction === null) {
+        if(update.correction < 0 || update.correction == undefined || correction === null) {
             timer();
             return;
         }

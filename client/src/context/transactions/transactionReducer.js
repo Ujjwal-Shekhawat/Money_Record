@@ -6,7 +6,7 @@ export default (state, action) => {
             return {
                 ...state,
                 transactions: state.transactions.filter(
-                    (transaction) => transaction._id !== action.payload
+                    (transaction) => transaction._id /* !== action.payload //It will remove the target and re render it which is not pleaseing to user alo it was a mistake form my sdie*/
                 ),
                 loading: false 
             };
