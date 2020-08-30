@@ -1,6 +1,6 @@
 # Money Record
 
-Format: ![Alt Text](https://miro.medium.com/max/2560/1*k0SazfSJ-tPSBbt2WDYIyw.png)
+![Image has been moved to a diffrent link or has been removed or deleted](https://miro.medium.com/max/2560/1*k0SazfSJ-tPSBbt2WDYIyw.png)
 
 ### You can see the deployed application [here](https://desolate-plains-00303.herokuapp.com/)
 
