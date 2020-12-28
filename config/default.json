@@ -1,4 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://Ujjwal:ujjwal@cluster1.zegcf.mongodb.net/<dbname>?retryWrites=true&w=majority",
+    "mongoURI": "mongodb+srv://Ujjwal:ujjwal@cluster1.zegcf.mongodb.net/monreyrecord?retryWrites=true&w=majority",
     "jwtSeceret": "seceret"
 }
